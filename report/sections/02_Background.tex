@@ -29,6 +29,26 @@ The reason BLE is chosen for this project is that the standard allows an amount 
 BLE enables the system to discover and receive addresses of the devices in the immediate vicinity and thereby the system is able to decide whether a device is registered for a user of the system.
 Currently BLE is amongst other supported by a number of cell phones and wearables:
 
+\begin{table}[!t]
+\caption{Device descriptions}
+\label{table_example}
+\centering
+% Some packages, such as MDW tools, offer better commands for making tables
+% than the plain LaTeX2e tabular which is used here.
+\begin{tabular}{|p{2.3cm}|p{1.3cm}|p{3.8cm}|}
+\hline
+\textbf{Device} & \textbf{Hardware Support} & \textbf{Software Support}\\
+\hline
+iPhone 5, iPhone 5s (IOS7) & Yes & Yes\\
+\hline
+Nexus 5 (Kitkat 4.4.2) & Yes & Partial \newline
+Client profile (Android 4.3)
+Server profile (planned)\\
+\hline
+Pebble Smartwatch (Pebble OS 2.0) & Yes & Server profile\\
+\hline
+\end{tabular}
+\end{table}
 
 \subsection{Received Signal Strength Indication (RSSI)}
 
