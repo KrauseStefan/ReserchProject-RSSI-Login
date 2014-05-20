@@ -5,7 +5,7 @@
 Bluetooth is widely supported throughout almost all devices.
 Using bluetooth to solve this problem would thereby allow the solution to be widely implemented.
 
-We have chosen to implement this bluetooth proximity detection without pairing any devices.
+We have chosen to implement this Bluetooth proximity detection without pairing any devices.
 This is to make the authentication as seamless as possible and to save the user from spending time pairing the devices manually.
 
 \subsection{Security}
@@ -52,7 +52,7 @@ Pebble Smartwatch (Pebble OS 2.0) & Yes & Server profile\\
 
 \subsection{Received Signal Strength Indication (RSSI)}
 
-In order to detect whether a user is close enough to the system to actually use it we utilize the value of RSSI from the users bluetooth enabled device.
+In order to detect whether a user is close enough to the system to actually use it we utilize the value of RSSI from the users Bluetooth enabled device.
 Experiments have been performed indicating that RSSI is a viable mean for proximity detection\cite{ref:Takashi}.
 When the strength of a RSSI signal reaches a predefined high threshold, when measured from the system, the user is sufficiently close to interact with the system, and the user will be partially authenticated.
 When a user has been authenticated but decides to move away from the system the user will be deauthenticated when the RSSI reaches a predefined low threshold.
