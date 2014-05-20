@@ -2,14 +2,32 @@
 
 \subsection{Test setup}
 
+On Raspberry pi and Ubuntu we used the official bluetooth stack BlueZ.
+The devices needs to be configured to use Bluetooth LE, this is done by running the command ‘sudo hciconfig hci0 leadv’
+
+\url{http://books.google.dk/books?id=-LMq0NhoEQgC&pg=PA358&lpg=PA358&dq=EnableGatt&source=bl&ots=AXu2znOEUw&sig=PjvPAADd4H3WInDAEFszw1MALr8&hl=da&sa=X&ei=uilyU6biJIz6yAOH94CQCg&ved=0CIsBEOgBMAk#v=onepage&q=EnableGatt&f=false}
+
 \subsection{Scenarios}
 
+The base scenario consists of a Raspberry Pi with custom software as the system.
+This system is the static part of the test scenarios and from it distance to nearby devices are measured.
+The devices in the test scenarios will be a collection of cell phones from different vendors and other wearables.
+The devices will be both static and moving depending on the test scenario.
+
+
 \subsubsection{Difference in RSSI from different devices}
+Is there a significant difference in RSSI when using different devices
 
 \subsubsection{Single user moving towards system}
+Plot RSSI pr. meter
+
+Discover RSSI threshold for login
 
 \subsubsection{Single user moving away from system}
+Discover RSSI threshold for logout
 
 \subsubsection{Multiple devices, user moving towards system, other}
+Interferens?
 
 \subsubsection{Multiple devices, two users moving towards the system}
+Who will be authenticated first?
