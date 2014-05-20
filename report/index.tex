@@ -14,6 +14,7 @@
 
 % *** CITATION PACKAGE ***
 \usepackage{cite}
+\usepackage{newclude}
 
 % cite.sty was written by Donald Arseneau
 % V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
@@ -256,7 +257,7 @@
 % received ..."  text while in non-compsoc journals this is reversed. Sigh.
 
 \author{Stefan~Krause-Kj\ae r,
-        Thomas Steffensen
+        Thomas Steffensen 
         Theis Nickelsen% <-this % stops a space
 
 \IEEEcompsocitemizethanks{\IEEEcompsocthanksitem M. Shell is with the Department
@@ -282,45 +283,16 @@ E-mail: see http://www.michaelshell.org/contact.html
 % \thanks is no different in this regard, so shield the last } of each \thanks
 % that ends a line with a % and do not let a space in before the next \thanks.
 % Spaces after \IEEEmembership other than the last one are OK (and needed) as
-% you are supposed to have spaces between the names. For what it is worth,
-% this is a minor point as most people would not even notice if the said evil
-% space somehow managed to creep in.
-
-
+% you are supposed to have spaces between the names.
 
 % The paper headers
 \markboth{Journal of \LaTeX\ Class Files,~Vol.~11, No.~4, December~2012}%
 {Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Computer Society Journals}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
-% 
-% *** Note that you probably will NOT want to include the author's ***
-% *** name in the headers of peer review papers.                   ***
-% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
-% you desire.
-
-
-
-% The publisher's ID mark at the bottom of the page is less important with
-% Computer Society journal papers as those publications place the marks
-% outside of the main text columns and, therefore, unlike regular IEEE
-% journals, the available text space is not reduced by their presence.
-% If you want to put a publisher's ID mark on the page you can do it like
-% this:
-%\IEEEpubid{0000--0000/00\$00.00~\copyright~2012 IEEE}
-% or like this to get the Computer Society new two part style.
-%\IEEEpubid{\makebox[\columnwidth]{\hfill 0000--0000/00/\$00.00~\copyright~2012 IEEE}%
-%\hspace{\columnsep}\makebox[\columnwidth]{Published by the IEEE Computer Society\hfill}}
-% Remember, if you use this you must call \IEEEpubidadjcol in the second
-% column for its text to clear the IEEEpubid mark (Computer Society jorunal
-% papers don't need this extra clearance.)
-
-
 
 % use for special paper notices
 %\IEEEspecialpapernotice{(Invited Paper)}
-
-
 
 % for Computer Society papers, we must declare the abstract and index terms
 % PRIOR to the title within the \IEEEtitleabstractindextext IEEEtran
@@ -332,40 +304,13 @@ E-mail: see http://www.michaelshell.org/contact.html
 The abstract goes here.
 \end{abstract}
 
-% Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Computer Society, IEEEtran, journal, \LaTeX, paper, template.
+Bluetooth, RSSI, BLE, Raspberry Pi, Authentication, Partial Login, iPhone, Android, Context awareness.
 \end{IEEEkeywords}}
 
 
 % make the title area
 \maketitle
-
-
-% To allow for easy dual compilation without having to reenter the
-% abstract/keywords data, the \IEEEtitleabstractindextext text will
-% not be used in maketitle, but will appear (i.e., to be "transported")
-% here as \IEEEdisplaynontitleabstractindextext when the compsoc 
-% or transmag modes are not selected <OR> if conference mode is selected 
-% - because all conference papers position the abstract like regular
-% papers do.
-\IEEEdisplaynontitleabstractindextext
-% \IEEEdisplaynontitleabstractindextext has no effect when using
-% compsoc or transmag under a non-conference mode.
-
-
-
-% For peer review papers, you can put extra information on the cover
-% page as needed:
-% \ifCLASSOPTIONpeerreview
-% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
-% \fi
-%
-% For peerreview papers, this IEEEtran command inserts a page break and
-% creates the second title. It will be ignored for other modes.
-\IEEEpeerreviewmaketitle
-
-
 
 \section{Introduction}
 % Computer Society journal papers do something a tad strange with the very
@@ -512,12 +457,7 @@ Subsubsection text here.
 % floats. This can be corrected via the \fnbelowfloat command of the
 % stfloats package.
 
-
-
-\section{Conclusion}
-The conclusion goes here.
-
-
+\include*{sections/06_Conclusions}
 
 
 
