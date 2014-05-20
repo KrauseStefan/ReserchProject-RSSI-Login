@@ -2,11 +2,46 @@
 
 \subsection{Why use Bluetooth for proximity detection}
 
+Bluetooth is widely supported throughout almost all devices.
+Using bluetooth to solve this problem would thereby allow the solution to be widely implemented.
+
+We have chosen to implement this bluetooth proximity detection without pairing any devices.
+This is to make the authentication as seamless as possible and to save the user from spending time pairing the devices manually.
+
 \subsection{Security}
+
+The purpose of this project is to authenticate users when the user is close to the system in order to give the user a more seamless and less time consuming experience.
+This introduces many security issues, which the system developer needs to address.
+How close should the user be to the system in order to be authorized? What happens if there is multiple devices close to the system? Will this compromise the overall system security and is this acceptable?
+
+The answers to these questions obviously depends on the system and an authentication model should be introduced.
+One could imagine a partial login system where the user is only granted access to functionality, which doesn’t need high level security, when the user is close and more functionality on top of what has already been given, when the user swipes a nfc card.
+So in this case the user would only be granted access to lower level functionality, such as ‘view-only’, when being close the system.
+
+Authorization happens without pairing of bluetooth devices.
+This means authorization happens via.
+the MAC address bluetooth low energy broadcasts and that the system has the MAC addresses of the user devices stored for user device recognition.
 
 \subsection{Bluetooth Low Energy (BLE)}
 
+BLE is a fairly new standard and as such not all devices support it.
+The reason BLE is chosen for this project is that the standard allows an amount of communication without the tedious task of pairing devices.
+BLE enables the system to discover and receive addresses of the devices in the immediate vicinity and thereby the system is able to decide whether a device is registered for a user of the system.
+Currently BLE is amongst other supported by a number of cell phones and wearables:
+
+
 \subsection{Received Signal Strength Indication (RSSI)}
 
-\subsection{Time of Arrival (ToA)}
+In order to detect whether a user is close enough to the system to actually use it we utilize the value of RSSI from the users bluetooth enabled device.
+Experiments have been performed by Takashi et al.[1] indicating that RSSI is a viable means for proximity detection.
+When the strength of a RSSI signal reaches a predefined high threshold, when measured from the system, the user is sufficiently close to interact with the system, and the user will be partially authenticated.
+When a user has been authenticated but decides to move away from the system the user will be deauthenticated when the RSSI reaches a predefined low threshold.
+
+\subsection{Time of Arrival (ToA)} %This sections needs more work, depending on how much descusion we need futhor on
+This technology should be considered, it provides a method for measuring distance more accurately.
+The technique uses the travel speed of the wireless signal to measure how far the signal traveled.
+This can provide a much more accurate distance, but also has higher requirements for hardware.
+It requires time synchronization which works best if hardware supported. (Support on phones and similar devices are very limited though). %need ref to support claim
+
+\url{http://en.wikipedia.org/wiki/Time_of_arrival}
 
