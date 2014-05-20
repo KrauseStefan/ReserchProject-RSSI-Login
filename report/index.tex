@@ -9,12 +9,13 @@
 
 \documentclass[12pt,journal,compsoc]{IEEEtran}
 
-% *** MISC UTILITY PACKAGES ***
-%
+% *** Include subpages *** 
+\usepackage{newclude}
+% used \include*()
+
 
 % *** CITATION PACKAGE ***
-\usepackage{cite}
-\usepackage{newclude}
+\usepackage[nocompress]{cite}
 
 % cite.sty was written by Donald Arseneau
 % V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
@@ -366,6 +367,7 @@ The authors would like to thank...
 \fi
 
 
+\include*{sections/A_Referneces}
 
 % trigger a \newpage just before the given reference
 % number - used to balance the columns on the last page
