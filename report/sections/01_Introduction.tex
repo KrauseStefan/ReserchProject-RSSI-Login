@@ -1,4 +1,24 @@
+% !TeX spellcheck = en_GB
 \section{Introduction}
+
+\IEEEPARstart{U}{ser} authentication in context aware and ubiquitous systems is difficult.
+Authenticating a user without the user being aware of the process requires that the authentication system is highly context aware.
+A context aware system will be able to collect data about the individuals currently in the vicinity of the system and, based on this information, grant access to data based on the level of authentication the individual has achieved.
+So for example if an individual is close to the system, ‘view-only’ authorization is granted.
+If the same individual afterwards swipes his NFC card, ‘edit’ authorization is granted.
+Using a partial login system, that allows different levels of authentication, it is possible to achieve a more seamless interaction with the system. Also the constant need for login and logout, that today’s security systems force upon users, will only be necessary if a user wishes to have access at a higher level.
+
+This project will explore nearby-system authentication using the Receive Signal Strength Indication (RSSI) value of a bluetooth device, so the user only needs to be around the system in order to get a system-predefined level of authentication. A concrete example of this will be implemented using a mobile phone’s bluetooth device and a bluetooth enabled raspberry pi.
+
+\noindent Objectives:
+\begin{itemize}
+	\item Create an authentication model for partial login.
+	\item Implement and evaluate a system that enables seamless login via bluetooth.
+\end{itemize}
+
+
+
+
 
 
 % Computer Society journal papers do something a tad strange with the very
@@ -37,25 +57,25 @@
 % 
 % Here we have the typical use of a "T" for an initial drop letter
 % and "HIS" in caps to complete the first word.
-\IEEEPARstart{T}{his} demo file is intended to serve as a ``starter file''
-for IEEE Computer Society journal papers produced under \LaTeX\ using
-IEEEtran.cls version 1.8 and later.
+% \IEEEPARstart{T}{his} demo file is intended to serve as a ``starter file''
+% for IEEE Computer Society journal papers produced under \LaTeX\ using
+% IEEEtran.cls version 1.8 and later.
 % You must have at least 2 lines in the paragraph with the drop letter
 % (should never be an issue)
-I wish you the best of success.
+% I wish you the best of success.
 
-\hfill mds
- 
-\hfill December 27, 2012
+%\hfill mds
+% 
+%\hfill December 27, 2012
 
-\subsection{Subsection Heading Here}
-Subsection text here.
+%\subsection{Subsection Heading Here}
+%Subsection text here.
 
 % needed in second column of first page if using \IEEEpubid
 %\IEEEpubidadjcol
 
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
+%\subsubsection{Subsubsection Heading Here}
+%Subsubsection text here.
 
 
 % An example of a floating figure using the graphicx package.
