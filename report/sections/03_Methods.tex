@@ -17,7 +17,7 @@ Proposed methods
 
 \subsection{Partial authentication model}
 A login method has been developed to take different levels of trust into account.
-As presented in figure \ref{fig_authentication_model} the authentication model has three levels of trust:
+As presented in \cref{fig_authentication_model} the authentication model has three levels of trust:
 
 \begin{itemize}
 \item High (green)
@@ -25,8 +25,15 @@ As presented in figure \ref{fig_authentication_model} the authentication model h
 \item Low (red)
 \end{itemize}
 
+\begin{figure}[!t]
+	\centering
+	\includegraphics[width=2.5in]{img/authenticationModel}
+	\caption{ Partial login and trust }
+	\label{fig_authentication_model}
+\end{figure}
+
 High trust is obtained by authenticating with a combination of two of the three authentication methods.
-A user is only able to view and edit sensitive data within the high trust area of the model.
+As shown in \cref{table_data_access} a user is only able to view and edit sensitive data within the high trust area of the model.
 
 Medium trust is obtained by authenticating with either a username/password or biometric authentication.
 These two authentication methods is reasonable secure and are used universally for authentication.
@@ -40,9 +47,21 @@ No edit or delete is allowed.
 This model allows the user to be partially authenticated before any physical interaction.
 The system gets the ability to recognize users and may for instance use that information to move a session started on one system to the current system so the user is able to seamlessly work on from the point the previous session ended.
 
-\begin{figure}[!t]
-	\centering
-	\includegraphics[width=2.5in]{img/authenticationModel}
-	\caption{ Partial login and trust }
-	\label{fig_authentication_model}
-\end{figure}
+\begin{table}[!t]
+\caption{Data access}
+\label{table_data_access}
+\centering
+% Some packages, such as MDW tools, offer better commands for making tables
+% than the plain LaTeX2e tabular which is used here.
+\begin{tabular}{|p{1.3cm}|p{2.0cm}|p{2.0cm}|p{2.0cm}|}
+\hline
+\textbf{Trust level} & \textbf{Non sensitive personal data} & \textbf{Non senstive data} & \textbf{Senstive data}\\
+\hline
+\textbf{High} & Read/Write & Read/Write & Read/Write\\
+\hline
+\textbf{Medium} & Read/Write & Read/Write & Read\\
+\hline
+\textbf{Low} & Read & - & -\\
+\hline
+\end{tabular}
+\end{table}
