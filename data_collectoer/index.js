@@ -19,8 +19,12 @@ var peripheral = {
 };
 
 noble.on('discover', function(peripheral){
-    console.log(JSON.stringify(periphreal, null, "   "))
-
+    if(!peripheral) console.log("empty");
+    console.log(peripheral.advertisement.localName + " : " + peripheral.uuid);
+    
+    setInterval(function(){
+        console.log(peripheral.advertisement.localName + " : " + peripheral.rssi);
+    }, 200);
 });
 
 noble.startScanning(); // any service UUID, no duplicates
