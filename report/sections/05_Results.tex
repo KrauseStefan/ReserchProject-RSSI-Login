@@ -1,2 +1,18 @@
 \section{Results}
 
+\begin{tikzpicture}
+\begin{axis}[
+	title={Test},
+	xlabel={Time},
+    ylabel={RSSI},
+    legend columns=-1,
+    legend entries={Raw,Filtered},
+    legend to name=named]
+\addplot[red] table [x=T, y=RSSI, col sep=comma] {plotdata/log.plot.csv};
+\addplot[blue, mark=*] table [x=RSSI, y=T, col sep=comma] {plotdata/log.plot.csv};
+\end{axis}
+\end{tikzpicture}
+
+\begin{center}
+\ref{named}
+\end{center}
