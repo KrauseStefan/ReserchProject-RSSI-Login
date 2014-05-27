@@ -3,16 +3,23 @@
 \subsection{Test setup}
 
 On Raspberry pi and Ubuntu we used the official bluetooth stack BlueZ.
-The devices needs to be configured to use Bluetooth LE, this is done by running the command ‘sudo hciconfig hci0 leadv’
+The devices needs to be configured to use Bluetooth LE, this is done by running the command 
+\shellcmd{‘sudo hciconfig hci0 leadv’} 
 
-\url{http://books.google.dk/books?id=-LMq0NhoEQgC&pg=PA358&lpg=PA358&dq=EnableGatt&source=bl&ots=AXu2znOEUw&sig=PjvPAADd4H3WInDAEFszw1MALr8&hl=da&sa=X&ei=uilyU6biJIz6yAOH94CQCg&ved=0CIsBEOgBMAk#v=onepage&q=EnableGatt&f=false}
+\begin{itemize}
+\item \href{http://books.google.dk/books?id=-LMq0NhoEQgC&pg=PA358&lpg=PA358&dq=EnableGatt&source=bl&ots=AXu2znOEUw&sig=PjvPAADd4H3WInDAEFszw1MALr8&hl=da&sa=X&ei=uilyU6biJIz6yAOH914CQCg&ved=0CIsBEOgBMAk#v=onepage&q=EnableGatt&f=false}
+{Inside Bluetooth Low Energy}
 
-Install nodejs
-\url{http://joshondesign.com/2013/10/23/noderpi}
+\item \href{http://joshondesign.com/2013/10/23/noderpi}
+{Node.js install guide on Raspberry Pi}
 
-PATH=\$PATH:/home/pi/node-v0.10.26-linux-arm-pi/bin
+\end{itemize}
 
-export PATH
+\noindent Root user needs to PATH setup before start:
+\shellcmd{PATH=\$PATH:/home/pi/node-v0.10.26-linux-arm-pi/bin}
+\shellcmd{export PATH}
+\shellcmd{node <start BLE app>.js}
+
 
 \subsection{Scenarios}
 
