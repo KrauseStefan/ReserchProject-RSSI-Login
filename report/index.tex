@@ -9,11 +9,7 @@
 
 \documentclass[12pt,journal,compsoc]{IEEEtran}
 
-% *** Include subpages *** 
-\usepackage{newclude}
-% used \include*()
-
-%Used to generate links, can be removed for final version
+% Used to generate links, can be removed for final version
 \usepackage{hyperref}
 %used for \cref
 \usepackage{cleveref}
@@ -308,7 +304,7 @@
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \IEEEtitleabstractindextext{%
-\include*{sections/00_Abstract}
+\input{sections/00_Abstract}
 
 \begin{IEEEkeywords}
 Bluetooth, RSSI, BLE, Raspberry Pi, Authentication, Partial Login, iPhone, Android, Context awareness.
@@ -318,14 +314,14 @@ Bluetooth, RSSI, BLE, Raspberry Pi, Authentication, Partial Login, iPhone, Andro
 % make the title area
 \maketitle
 
-\include*{sections/01_Introduction}
-\include*{sections/02_Background}
-\include*{sections/03_Methods}
-\include*{sections/04_Experiments}
-\include*{sections/05_Results}
+\input{sections/01_Introduction}
+\input{sections/02_Background}
+\input{sections/03_Methods}
+\input{sections/04_Experiments}
+\input{sections/05_Results}
 
 
-\include*{sections/06_Conclusions}
+\input{sections/06_Conclusions}
 
 
 
@@ -374,7 +370,7 @@ The authors would like to thank...
 \fi
 
 
-\include*{sections/A_Referneces}
+\input{sections/A_Referneces}
 
 % trigger a \newpage just before the given reference
 % number - used to balance the columns on the last page
