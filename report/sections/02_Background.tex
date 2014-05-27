@@ -40,7 +40,7 @@ Currently BLE is amongst other supported by a number of cell phones and wearable
 \hline
 iPhone 5, iPhone 5s (IOS7) & Yes & Yes\\
 \hline
-Nexus 5 (Kitkat 4.4.2) & Yes & Partial \newline
+Nexus 5 \newline (Kitkat 4.4.2) & Yes & Partial \newline
 Client profile (Android 4.3)
 Server profile (planned)\\
 \hline
@@ -53,8 +53,6 @@ Pebble Smartwatch (Pebble OS 2.0) & Yes & Server profile\\
 
 In order to detect whether a user is close enough to the system to actually use it we utilize the value of RSSI from the users Bluetooth enabled device.
 Experiments have been performed indicating that RSSI is a viable mean for proximity detection \cite{ref:Takashi}.
-When the strength of a RSSI signal reaches a predefined high threshold, when measured from the system, the user is sufficiently close to interact with the system, and the user will be partially authenticated.
-When a user has been authenticated but decides to move away from the system the user will be deauthenticated when the RSSI reaches a predefined low threshold.
 
 \subsection{Time of Arrival (ToA)} %This sections needs more work, depending on how much descusion we need futhor on
 This technology should be considered, it provides a method for measuring distance more accurately.
@@ -63,4 +61,3 @@ This can provide a much more accurate distance, but also has higher requirements
 It requires time synchronization which works best if hardware supported. (Support on phones and similar devices are very limited though). %need ref to support claim
 
 \url{http://en.wikipedia.org/wiki/Time_of_arrival}
-

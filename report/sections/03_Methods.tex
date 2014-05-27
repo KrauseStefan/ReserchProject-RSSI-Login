@@ -1,4 +1,4 @@
-\section{Methods}
+	\section{Methods}
 
 \subsection{Existing methods}
 
@@ -13,12 +13,18 @@
 	\label{fig_proximity_based_login}
 \end{figure}
 
+When the strength of a RSSI signal reaches a predefined high threshold, when measured from the system, the user is sufficiently close to interact with the system, and the user will be partially authenticated.
+When a user has been authenticated but decides to move away from the system the user will be deauthenticated when the RSSI reaches a predefined low threshold.
+
+Furthermore it is possible to preload information about earlier sessions when a user is moving towards the system.
+When the user is close enough to be partially authenticated the system thus has preloaded information and may be able to present additional relevant data based on the preloaded information from earlier sessions. 
+\cref{fig_proximity_based_login} illustrates the concept of preloading information based on the users proximity to the system.
+
 \subsection{Bluetooth Low Energy authentication}
 
 \subsection{Partial authentication model}
 A login method has been developed to take different levels of trust into account.
-As presented in \cref{fig_authentication_model} the authentication model has three levels of trust:
-
+As presented in \cref{fig_authentication_model} the authentication model has three levels of trust
 \begin{itemize}
 \item High (green)
 \item Medium (yellow)
@@ -55,7 +61,7 @@ The system gets the ability to recognize users and may for instance use that inf
 % than the plain LaTeX2e tabular which is used here.
 \begin{tabular}{|p{1.3cm}|p{2.0cm}|p{2.0cm}|p{2.0cm}|}
 \hline
-\textbf{Trust level} & \textbf{Non sensitive personal data} & \textbf{Non senstive data} & \textbf{Senstive data}\\
+\textbf{Trust} & \textbf{Non sensitive personal data} & \textbf{Non sensitive data} & \textbf{Sensitive data}\\
 \hline
 \textbf{High} & Read/Write & Read/Write & Read/Write\\
 \hline
