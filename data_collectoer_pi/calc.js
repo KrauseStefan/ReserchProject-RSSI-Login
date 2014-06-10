@@ -30,11 +30,9 @@ function parseData(name, err, data){
 
 }
 
-var files = fs.readdirSync(__dirname);
-
 console.log("meter,median,upKvart,lwKvart,max,min");
 
-files.forEach(function(elm){
+fs.readdirSync(__dirname).forEach(function(elm){
     if(!elm.match(/.csv$/)){
         return;
     }
@@ -46,6 +44,9 @@ files.forEach(function(elm){
     rs.pipe(parser);
 
 });
+
+
+
 
 // var rs = fs.createReadStream(__dirname+'/test000m.csv');
 
