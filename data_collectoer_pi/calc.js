@@ -11,10 +11,15 @@ function parseData(name, err, data){
 
     data.sort();
 
+    name = name.replace('_', ',');
+    name = name.match(/\d+,?\d+/)
+    if(name == null)
+        return;
+    name = name[0];
     // console.log("length: "+ data.length);
     // console.log("median:"+ data.length / 2 )
     var row = "";
-    row += name.match(/\d+/)[0] + ",";
+    row += '"' + name + '",';
     row += data [ Math.round(data.length / 2 )] + ",";
     row += data [ Math.round(data.length / 4 )] + ",";
     row += data [ Math.round(( data.length / 4 ) * 3 )]+ ",";
