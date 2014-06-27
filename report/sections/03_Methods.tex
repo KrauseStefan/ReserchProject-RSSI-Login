@@ -13,7 +13,9 @@
 	\label{fig_proximity_based_login}
 \end{figure}
 
-When the strength of a RSSI signal reaches a predefined high threshold, when measured from the system, the user is sufficiently close to interact with the system, and the user will be partially authenticated.
+It is hard to convert RSSI values into distance because of it's fluctuating nature and the effect of the surrounding environment. Thus instead of dealing in distances the way proximity is detected in this system is by a predefined RSSI value treshold. By determining this threshold and using filters to remove noise it is possible to use RSSI as a means for proximity detection.
+
+When the strength of a RSSI signal reaches the predefined high threshold, when measured from the system, the user is sufficiently close to interact with the system, and the user will be partially authenticated.
 When a user has been authenticated but decides to move away from the system the user will be deauthenticated when the RSSI reaches a predefined low threshold.
 
 Furthermore it is possible to preload information about earlier sessions when a user is moving towards the system.

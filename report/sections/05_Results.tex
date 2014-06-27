@@ -3,8 +3,8 @@
 \begin{tikzpicture}
   \begin{axis}
     [
-    xtick={1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13},
-    xticklabels={0, 0.5, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20},
+    xtick={1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+    xticklabels={0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20},
     boxplot/draw direction=y
     ]
     
@@ -23,34 +23,37 @@
 	    
 	%0.5 Metres
 	%-57,-55,-59,-61,-54
-	 \addplot+[
-	  blue,
-	  boxplot prepared={
-	    median=-57,
-	    upper quartile=-55,
-	    lower quartile=-59,
-	    upper whisker=-61,
-	    lower whisker=-54
-	  },
-	  ] coordinates {};
+%	 \addplot+[
+%	  blue,
+%	  solid,
+%	  boxplot prepared={
+%	    median=-57,
+%	    upper quartile=-55,
+%	    lower quartile=-59,
+%	    upper whisker=-61,
+%	    lower whisker=-54
+%	  },
+%	  ] coordinates {};
 	
 	%1 Metres
 		%-68,-67,-69,-75,-65
-		 \addplot+[
-		  blue,
-		  boxplot prepared={
-		    median=-68,
-		    upper quartile=-67,
-		    lower quartile=-69,
-		    upper whisker=-75,
-		    lower whisker=-65
-		  },
-		  ] coordinates {};
+%		 \addplot+[
+%		  blue,
+%		  solid,
+%		  boxplot prepared={
+%		    median=-68,
+%		    upper quartile=-67,
+%		    lower quartile=-69,
+%		    upper whisker=-75,
+%		    lower whisker=-65
+%		  },
+%		  ] coordinates {};
 	    
 	%2 metres
 	%-69,-67,-75,-85,-63
     \addplot+[
         blue,
+        solid,
         boxplot prepared={
           median=-69,
           upper quartile=-67,
@@ -64,6 +67,7 @@
       %-70,-69,-71,-74,-67
       \addplot+[
 	      blue,
+	      solid,
 	      boxplot prepared={
 	        median=-70,
 	        upper quartile=-69,
@@ -77,6 +81,7 @@
 	  %-78,-76,-79,-81,-72
 	  \addplot+[
 	  	      blue,
+	  	      solid,
 	  	      boxplot prepared={
 	  	        median=-78,
 	  	        upper quartile=-76,
@@ -90,6 +95,7 @@
 	  	 %-78,-77,-83,-90,-76
 	 	  \addplot+[
  	  	      blue,
+ 	  	      solid,
  	  	      boxplot prepared={
  	  	        median=-78,
  	  	        upper quartile=-77,
@@ -103,6 +109,7 @@
  	  	  %-78,-77,-80,-83,-75
  	 	  \addplot+[
 	  	      blue,
+	  	      solid,
 	  	      boxplot prepared={
 	  	        median=-78,
 	  	        upper quartile=-77,
@@ -116,6 +123,7 @@
 	  	  %-80,-77,-82,-86,-75
  	 	  \addplot+[
  	      blue,
+ 	      solid,
  	      boxplot prepared={
  	        median=-80,
  	        upper quartile=-77,
@@ -129,6 +137,7 @@
  	      %-77,-76,-77,-78,-74
    	 	  \addplot+[
  	      blue,
+ 	      solid,
  	      boxplot prepared={
  	        median=-77,
  	        upper quartile=-76,
@@ -142,6 +151,7 @@
  	      %-81,-80,-82,-84,-78
   	 	  \addplot+[
  	      blue,
+ 	      solid,
  	      boxplot prepared={
  	        median=-81,
  	        upper quartile=-80,
@@ -155,6 +165,7 @@
  	      %-85,-83,-85,-91,-81
  	      \addplot+[
  	      blue,
+ 	      solid,
  	      boxplot prepared={
  	        median=-85,
  	        upper quartile=-83,
@@ -168,6 +179,7 @@
  	      %-84,-84,-85,-88,-81
  	      \addplot+[
  	      blue,
+ 	      solid,
  	      boxplot prepared={
  	        median=-84,
  	        upper quartile=-84,
@@ -182,3 +194,5 @@
 \begin{center}
 \ref{named}
 \end{center}
+
+Seeing how the value of the RSSI measured from the device fluctuates it is clear that RSSI is hard to use for distance measurements. From a mean around 45 when measured right on top of the system the RSSI value drops drastically within the first few meters distance. As the device moves further away from the system the RSSI value becomes lower but there is no apparant model to the decline.
