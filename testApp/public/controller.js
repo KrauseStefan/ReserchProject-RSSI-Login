@@ -55,9 +55,11 @@
 					item.isKnowen = $scope.knowenDevices.some(idMatch);
 					if(uuid === item.UUID){
 						var rssiHistory = $scope.nearbyDevices[i].rssiHistory || [];
+						var valid = $scope.nearbyDevices[i].valid;
 						$scope.nearbyDevices[i] = item;
 						rssiHistory.unshift(item.rssi);
 						$scope.nearbyDevices[i].rssiHistory = rssiHistory;
+						$scope.nearbyDevices[i].valid = valid;
 						return;
 					}
 				}
