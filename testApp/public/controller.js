@@ -29,6 +29,8 @@
 					if(item.UUID === knowenItem.UUID){
 						if(item.localName){
 							knowenItem.localName = item.localName;
+						}else if(knowenItem.localName){
+							item.localName = knowenItem.localName;
 						}
 						return true;
 					}
