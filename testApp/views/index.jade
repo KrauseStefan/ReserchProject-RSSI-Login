@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	div(ng-controller="controller")
+		h1 Bluetooth login test app
+		p Move a active device close to the Bluetooth reciver to login
+
+		h2 Registered devices
+		ul
+			li(ng-repeat="device in knowenDevices") {{device.UUID}}: {{device.localName}}
+
+
+		h2 detected devices
+		ul
+			li(ng-repeat="device in nearbyDevices") {{device.UUID}}: {{device.localName}} RSSI: {{device.rssi}}
