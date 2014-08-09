@@ -26,8 +26,10 @@
 			var now = Date.now();
 			function forEachNewDevicesCallback(item){
 				function idMatch(knowenItem){
-					if(item.UUID === knowenItem.UUID && item.localName){
-						knowenItem.localName = item.localName;
+					if(item.UUID === knowenItem.UUID){
+						if(item.localName){
+							knowenItem.localName = item.localName;
+						}
 						return true;
 					}
 					return false;
