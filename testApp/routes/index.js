@@ -16,8 +16,8 @@ router.get('/template/:template', function(req, res) {
 router.get('/api/knowenDevices', function(req, res) {
   var knowenDevices = [
     {    
-      UUID: '487f3173d136',
-      localName: 'test'
+      UUID: 'c485082235d4',
+      localName: 'PC'
     },{    
       UUID: '001a7dda7108',
       localName: 'pi krause'
