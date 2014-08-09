@@ -19,7 +19,9 @@
 		});
 
 		function validateDevice(device){
-			return device && device.isKnowen && device.rssi >= $scope.model.rssiThresshold;
+			var lastTen = device.rssiHistory.slice(0, 10);
+			var avgRssi = lastTen.reduce(function(preVal, curVal){return preVal + curVal;}, 0) / 10;
+			return device && device.isKnowen && avgRssi >= $scope.model.rssiThresshold;
 		}
 
 		function doDeviceScan(){
