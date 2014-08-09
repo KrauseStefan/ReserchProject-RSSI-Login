@@ -21,6 +21,9 @@ router.get('/api/knowenDevices', function(req, res) {
     },{    
       UUID: '001a7dda7108',
       localName: 'pi krause'
+    },{    
+      UUID: '691a67d448a4',
+      localName: 'android Phone'
     }
   ];
 
