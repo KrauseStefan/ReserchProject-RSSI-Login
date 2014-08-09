@@ -13,7 +13,7 @@
 		$scope.nearbyDevices = [];
 		$scope.validateDevice = validateDevice;
 		
-		$http.get('/api/knowenDevices').then(function getKnowenDevicesFn(response){			
+		$http.get('/api/knowenDevices').then(function getKnowenDevicesFn(response){
 			$scope.knowenDevices = response.data;
 			doDeviceScan();
 		});
@@ -36,16 +36,18 @@
 					}
 					return false;
 				}
-				
 				for(var i = 0; i < $scope.nearbyDevices.length; i++){
 					$scope.nearbyDevices[i].isOld = (now - $scope.nearbyDevices[i].time > $scope.model.maxAge)
 					var uuid = $scope.nearbyDevices[i].UUID;
 					item.isKnowen = $scope.knowenDevices.some(idMatch);
 					if(uuid === item.UUID){
-						$scope.nearbyDevices[i] = item;						
+						var rssiHistory = nearbyDevices[i].rssiHistory;
+						$scope.nearbyDevices[i] = item;
+						rssiHistory.rssiHistory = rssiHistory;
 						return;
 					}
 				}
+				item.rssiHistory = [item.rssi];
 				$scope.nearbyDevices.unshift(item);
 			}
 			
