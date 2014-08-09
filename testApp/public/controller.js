@@ -23,7 +23,7 @@
 				return false;
 			}
 			var lastTen = device.rssiHistory.slice(0, 10);
-			var avgRssi = lastTen.reduce(function(preVal, curVal){return preVal + curVal;}, 0) / 10;
+			var avgRssi = lastTen.reduce(function(preVal, curVal){return preVal + curVal;}, 0) / lastTen.length;
 			return device.isKnowen && avgRssi >= $scope.model.rssiThresshold;
 		}
 
