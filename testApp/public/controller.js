@@ -46,7 +46,7 @@
 					var uuid = $scope.nearbyDevices[i].UUID;
 					item.isKnowen = $scope.knowenDevices.some(idMatch);
 					if(uuid === item.UUID){
-						var rssiHistory = nearbyDevices[i].rssiHistory;
+						var rssiHistory = $scope.nearbyDevices[i].rssiHistory;
 						$scope.nearbyDevices[i] = item;
 						rssiHistory.rssiHistory = rssiHistory;
 						return;
