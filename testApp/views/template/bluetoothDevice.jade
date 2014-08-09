@@ -9,4 +9,7 @@ div(ng-class="device.isKnowen ? 'known-device' : ''")
     tr(ng-if="device.rssi")
       td RSSI:
       td {{device.rssi}}
+    tr(ng-if="device.avgRssi")
+      td Avg RSSI:
+      td {{device.avgRssi}}
 
