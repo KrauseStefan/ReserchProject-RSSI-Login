@@ -6,7 +6,8 @@
 	
 	function controller($scope, $http){
 		$scope.model = {
-			rssiThresshold: -70,
+			rssiThressholdUpper: -75,
+			rssiThressholdLower: -65,
 			maxAge: 30*1000 //30 seconds
 		};
 		$scope.knowenDevices = [];
@@ -22,10 +23,16 @@
 			if(!device){
 				return false;
 			}
-			var lastTen = device.rssiHistory.slice(0, 10);
+			var lastTen = device.rssiHistory.slice(0, 20);
 			var avgRssi = lastTen.reduce(function(preVal, curVal){return preVal + curVal;}, 0) / lastTen.length;
 			device.avgRssi = avgRssi;
-			return device.isKnowen && avgRssi >= $scope.model.rssiThresshold;
+			if(device.valid){
+				device.valid = device.isKnowen && avgRssi >= $scope.model.rssiThressholdUpper;
+
+			}else{
+				device.valid = device.isKnowen && avgRssi >= $scope.model.rssiThressholdLower;
+			}
+			return device.valid;
 		}
 
 		function doDeviceScan(){

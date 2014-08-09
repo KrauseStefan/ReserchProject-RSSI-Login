@@ -28,9 +28,12 @@ block content
 
       div
         h2 Settings
-        label 
-          #rssi thresshold
-          input( type="number" ng-model="model.rssiThresshold")
+        label
+          #rssi thresshold upper
+          input( type="number" ng-model="model.rssiThressholdUpper")
+        label
+          #rssi thresshold lower
+          input( type="number" ng-model="model.rssiThressholdLower")
 
       div(style="")
         h2 Registered devices
