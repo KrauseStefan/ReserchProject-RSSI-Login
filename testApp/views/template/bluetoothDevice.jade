@@ -1,0 +1,12 @@
+div(ng-class="device.isKnowen ? 'known-device' : ''")
+  table
+    tr
+      td ID:
+      td {{device.UUID}}
+    tr
+      td Name:
+      td {{device.localName}}
+    tr(ng-if="device.rssi")
+      td RSSI:
+      td {{device.rssi}}
+

@@ -1,15 +1,51 @@
 extends layout
 
 block content
-	div(ng-controller="controller")
-		h1 Bluetooth login test app
-		p Move a active device close to the Bluetooth reciver to login
+  style.
+    section{
+      border: thin solid black;
+      padding: 5px;
+      margin: 2px;
+    }
 
-		h2 Registered devices
-		ul
-			li(ng-repeat="device in knowenDevices") {{device.UUID}}: {{device.localName}}
+    ul {
+      margin: 0;
+    }
+
+    li{
+      list-style-type: none;
+      margin: 2px;
+      border-left: 3px solid black;
+    }
+
+    .known-device{
+      background-color:rgba(0,150,0,0.7)
+    }
+  div(ng-controller="controller")
+    section
+      h1 Bluetooth login test app
+      p Move a active device close to the Bluetooth reciver to login
+
+      div
+        h2 Settings
+        label 
+          #rssi thresshold
+          input( type="number" ng-model="model.rssiThresshold")
+
+      div(style="")
+        h2 Registered devices
+        ul
+          li(ng-repeat="device in knowenDevices") 
+            bluetooth-device(device="device")
+
+        h2 detected devices
+        ul
+          li(ng-repeat="device in nearbyDevices") 
+            bluetooth-device(device="device")
 
 
-		h2 detected devices
-		ul
-			li(ng-repeat="device in nearbyDevices") {{device.UUID}}: {{device.localName}} RSSI: {{device.rssi}}
+
+    section(style="border: thin solid black; padding: 5px;")
+      h2 Currently logged in
+        bluetooth-device(ng-if="validateDevice(nearbyDevices[0])" device="nearbyDevices[0]")
+

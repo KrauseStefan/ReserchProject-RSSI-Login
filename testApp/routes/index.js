@@ -6,21 +6,25 @@ var moment = require('moment');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-    res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Express' });
+});
+
+router.get('/template/:template', function(req, res) {
+  res.render('template/' + req.params.template);
 });
 
 router.get('/api/knowenDevices', function(req, res) {
-    var knowenDevices = [
-        {    
-            UUID: '487f3173d136',
-            localName: 'test'
-        },{    
-            UUID: '1234567890qw',
-            localName: 'tes2'
-        }
-    ];
+  var knowenDevices = [
+    {    
+      UUID: '487f3173d136',
+      localName: 'test'
+    },{    
+      UUID: '001a7dda7108',
+      localName: 'pi krause'
+    }
+  ];
 
-    res.send(knowenDevices);
+  res.send(knowenDevices);
 });
 
 var blueToothPeripheral = [];
@@ -53,29 +57,26 @@ router.post('/api/deviceScan', function(req, res) {
         }
     ];
     */
-    setTimeout(function(){
-	var data = [];	
-	for(var i = 0; i < blueToothPeripheral.length; i++){
-	    data.push({
-	        time : moment().format(),
-		UUID : blueToothPeripheral[i].uuid,
-		localName : blueToothPeripheral[i].advertisement.localName,
-		rssi : blueToothPeripheral[i].rssi	
-	    });
-	}
+  setTimeout(function(){
+    var data = [];	
+    for(var i = 0; i < blueToothPeripheral.length; i++){
+      data.push({
+        time : Date.now(),
+        UUID : blueToothPeripheral[i].uuid,
+        localName : blueToothPeripheral[i].advertisement.localName,
+        rssi : blueToothPeripheral[i].rssi
+      });
+    }
 
-        res.send(data);
-//        res.send(foundDevices);
-    }, 500);    
+    res.send(data);
+//  res.send(foundDevices);
+  }, 500);
 });
 
 module.exports = router;
 
 noble.on('discover', function(peripheral){
-//    if(!peripheral) console.log("empty");    
-
-    blueToothPeripheral.push(peripheral);
-
+  blueToothPeripheral.push(peripheral);
 });
 
 noble.startScanning(); // any service UUID, no duplicates
