@@ -48,8 +48,8 @@
 					if(uuid === item.UUID){
 						var rssiHistory = $scope.nearbyDevices[i].rssiHistory || [];
 						$scope.nearbyDevices[i] = item;
-						rssiHistory.rssiHistory.push(item.rssi);
-						rssiHistory.rssiHistory = rssiHistory;
+						rssiHistory.push(item.rssi);
+						$scope.nearbyDevices[i].rssiHistory = rssiHistory;
 						return;
 					}
 				}
