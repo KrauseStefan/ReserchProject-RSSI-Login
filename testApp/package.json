@@ -17,7 +17,8 @@
     "mongodb": "*",
     "monk": "*",
     "morgan": "~1.0.0",
-    "static-favicon": "~1.0.0"
+    "static-favicon": "~1.0.0",
+    "moment": "~2.8.1"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

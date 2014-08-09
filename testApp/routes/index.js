@@ -2,6 +2,7 @@
 var express = require('express');
 var router = express.Router();
 var noble = require('noble');
+var moment = require('moment');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -53,7 +54,17 @@ router.post('/api/deviceScan', function(req, res) {
     ];
     */
     setTimeout(function(){
-        res.send(blueToothPeripheral);
+	var data = [];	
+	for(var i = 0; i < blueToothPeripheral.length; i++){
+	    data.push({
+	        time : moment().format(),
+		UUID : blueToothPeripheral[i].uuid,
+		localName : blueToothPeripheral[i].advertisement.localName,
+		rssi : blueToothPeripheral[i].rssi	
+	    });
+	}
+
+        res.send(data);
 //        res.send(foundDevices);
     }, 500);    
 });
