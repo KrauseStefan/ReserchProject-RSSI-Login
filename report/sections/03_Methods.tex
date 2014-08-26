@@ -17,8 +17,8 @@ However if exact distance is not necessary and knowledge of environment and devi
 %Thus instead of dealing in distances the way proximity is detected in this system is by a predefined RSSI value threshold.
 %By determining this threshold and using filters to remove noise it is possible to use RSSI as a means for proximity detection.
 
-When the strength of a RSSI signal reaches the predefined high threshold, when measured from the system, the user is sufficiently close to interact with the system, and the user will be partially authenticated.
-When a user has been authenticated but decides to move away from the system the user will be de-authenticated when the RSSI reaches a predefined low threshold.
+When the strength of a RSSI signal reaches the predefined upper threshold, when measured from the system, the user is sufficiently close to interact with the system, and the user will be partially authenticated.
+When a user has been authenticated but decides to move away from the system the user will be de-authenticated when the RSSI reaches a predefined lower threshold.
 
 \begin{figure}[!t]
 	\centering
@@ -40,6 +40,8 @@ When a user has been authenticated but decides to move away from the system the 
 % \cref{fig_proximity_based_login} illustrates the concept of preloading information based on the users proximity to the system.
 
 \subsubsection{Noise reduction filter}
-In order to reduce the noise of the RSSI measurements a standard median-filter was added to the system. When looking at the results form section \ref{sec_results} it is noted that we get some noise that is quite extreme these values are filtered completely out by a median filter and dos not even register. Any small deviations will be handled by the threshold.
+In order to reduce the noise of the RSSI measurements a standard median-filter was added to the system.
+When looking at the results plotted in fig. \ref{?????} it is noted that we get some noise with few a few extreme values.
+The extreme values must be filtered both a median and a mean can do this, but with a median filter these values can be filtered completely out and dos not register in the output. Any small deviations normally handled by a mean filter will be handled by the upper threshold and lower threshold.
 
 \subsection{Bluetooth Low Energy authentication}
