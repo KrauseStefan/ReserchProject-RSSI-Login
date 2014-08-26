@@ -6,12 +6,19 @@
 
 \subsubsection{RSSI proximity detection}
 
-\begin{figure}[!t]
-	\centering
-	\includegraphics[width=2.5in]{img/proximityBasedLogin}
-	\caption{ Proximity based login }
-	\label{fig_proximity_based_login}
-\end{figure}
+
+RSSI measures the signal quality between 2 transmitters.
+The signal quality is dependent on multiple factors among witch are signal reflections form the environment, transmission strength, antenna and finally distance.
+It is hard if not impossible to isolate the change in RSSI caused by a change in distance.
+However if exact distance is not necessary and knowledge of environment and devices are available, then devices can be calibrated with thresholds and used for detecting proximity.
+
+% % TODO remove, is replace by the above % %
+%It is hard to convert RSSI values into distance because of it's fluctuating nature and the effect of the surrounding environment.
+%Thus instead of dealing in distances the way proximity is detected in this system is by a predefined RSSI value threshold.
+%By determining this threshold and using filters to remove noise it is possible to use RSSI as a means for proximity detection.
+
+When the strength of a RSSI signal reaches the predefined upper threshold, when measured from the system, the user is sufficiently close to interact with the system, and the user will be partially authenticated.
+When a user has been authenticated but decides to move away from the system the user will be de-authenticated when the RSSI reaches a predefined lower threshold.
 
 \begin{figure}[!t]
 	\centering
@@ -20,19 +27,21 @@
 	\label{fig_solution_overview}
 \end{figure}
 
-RSSI measures the signal quality between 2 transmitters. The signal quality is dependent on multiple factors among witch are signal reflections form the environment, transmission strength, antenna and finally distance. It is hard if not impossible to isolate the change in RSSI caused by a change in distance. However if exact distance is not necessary and knowledge of environment and devices are available, then devices can be calibrated and used for detecting proximity.
+%\begin{figure}[!t]
+%	\centering
+%	\includegraphics[width=2.5in]{img/proximityBasedLogin}
+%	\caption{ Proximity based login }
+%	\label{fig_proximity_based_login}
+%\end{figure}
 
-%It is hard to convert RSSI values into distance because of it's fluctuating nature and the effect of the surrounding environment. Thus instead of dealing in distances the way proximity is detected in this system is by a predefined RSSI value threshold.
-%By determining this threshold and using filters to remove noise it is possible to use RSSI as a means for proximity detection.
+% % TODO remove, is not part of our system % %
+% Furthermore it is possible to preload information about earlier sessions when a user is moving towards the system.
+% When the user is close enough to be partially authenticated the system thus has preloaded information and may be able to present additional relevant data based on the preloaded information from earlier sessions. 
+% \cref{fig_proximity_based_login} illustrates the concept of preloading information based on the users proximity to the system.
 
-When the strength of a RSSI signal reaches the predefined high threshold, when measured from the system, the user is sufficiently close to interact with the system, and the user will be partially authenticated.
-When a user has been authenticated but decides to move away from the system the user will be deauthenticated when the RSSI reaches a predefined low threshold.
-
-Furthermore it is possible to preload information about earlier sessions when a user is moving towards the system.
-When the user is close enough to be partially authenticated the system thus has preloaded information and may be able to present additional relevant data based on the preloaded information from earlier sessions. 
-\cref{fig_proximity_based_login} illustrates the concept of preloading information based on the users proximity to the system.
-
-\subsection{Noise reduction filters}
-In order to reduce the noise of the RSSI measurements a standard mean-filter was added to the system.
+\subsubsection{Noise reduction filter}
+In order to reduce the noise of the RSSI measurements a standard median-filter was added to the system.
+When looking at the results plotted in fig. \ref{?????} it is noted that we get some noise with few a few extreme values.
+The extreme values must be filtered both a median and a mean can do this, but with a median filter these values can be filtered completely out and dos not register in the output. Any small deviations normally handled by a mean filter will be handled by the upper threshold and lower threshold.
 
 \subsection{Bluetooth Low Energy authentication}
