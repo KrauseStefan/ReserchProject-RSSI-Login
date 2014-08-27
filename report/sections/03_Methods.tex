@@ -17,9 +17,6 @@ However if exact distance is not necessary and knowledge of environment and devi
 %Thus instead of dealing in distances the way proximity is detected in this system is by a predefined RSSI value threshold.
 %By determining this threshold and using filters to remove noise it is possible to use RSSI as a means for proximity detection.
 
-When the strength of a RSSI signal reaches the predefined upper threshold, when measured from the system, the user is sufficiently close to interact with the system, and the user will be partially authenticated.
-When a user has been authenticated but decides to move away from the system the user will be de-authenticated when the RSSI reaches a predefined lower threshold.
-
 \begin{figure}[!t]
 	\centering
 	\includegraphics[width=3.5in]{img/SolutionOverview}
@@ -41,7 +38,12 @@ When a user has been authenticated but decides to move away from the system the 
 
 \subsubsection{Noise reduction filter}
 In order to reduce the noise of the RSSI measurements a standard median-filter was added to the system.
-When looking at the results plotted in fig. \ref{?????} it is noted that we get some noise with few a few extreme values.
-The extreme values must be filtered both a median and a mean can do this, but with a median filter these values can be filtered completely out and dos not register in the output. Any small deviations normally handled by a mean filter will be handled by the upper threshold and lower threshold.
+When looking at the results plotted in \cref{graf_OutsideMesurements} it is noted that we get some noise with few a few extreme values.
+The extreme values must be filtered both a median and a mean can do this, but with a median filter these values can be filtered completely out and dos not register in the output. Any small deviations normally handled by a mean filter will be handled by the Hysteresis threshold.
+
+\subsubsection{Hysteresis thresholds}
+When the strength of the filtered RSSI signal reaches the predefined upper threshold, the user is sufficiently close to interact with the system, and the user will be partially authenticated.
+When a user has been authenticated but decides to move away from the system the user will be de-authenticated when the RSSI reaches a predefined lower threshold.
+This prevents the user from being constantly logged in and out when the RSSI value is close to a single threshold.
 
 \subsection{Bluetooth Low Energy authentication}
