@@ -317,6 +317,22 @@
 Bluetooth, RSSI, BLE, Raspberry Pi, Authentication, Partial Login, iPhone, Android, Context awareness.
 \end{IEEEkeywords}}
 
+\newcommand{\buildBoxPlot}[5]{
+	\addplot+[
+	blue,
+    solid,
+	boxplot prepared={
+		median= #1,
+		upper quartile=#2,
+		lower quartile=#3,
+		upper whisker=#4,
+		lower whisker=#5
+	},
+	] coordinates {};
+	
+}
+
+
 
 % make the title area
 \maketitle
