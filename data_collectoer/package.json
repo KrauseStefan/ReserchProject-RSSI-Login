@@ -10,6 +10,7 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "noble": "~0.3.0",
-    "moment": "~2.6.0"
+    "moment": "~2.6.0",
+    "csv": "~0.4.0"
   }
 }
