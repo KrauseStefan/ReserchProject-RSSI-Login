@@ -24,6 +24,9 @@ router.get('/api/knowenDevices', function(req, res) {
     },{    
       UUID: '691a67d448a4',
       localName: 'android Phone'
+    }, {1
+      UUID: '749b1318ff19',
+      localName: 'Theis iPhone'      
     }
   ];
 
@@ -38,28 +41,6 @@ var goingUp = true;
 
 router.post('/api/deviceScan', function(req, res) {
 
-/*
-    if(goingUp){
-        rssi++;
-        if(rssi >= max){
-            goingUp = false;
-        }
-    }else{
-        rssi--;
-        if(rssi <= min){
-            goingUp = true;
-        }
-    }
-
-    var foundDevices = [
-        {
-            timestamp: Date.now(),
-            UUID: '487f3173d136',
-            localName: 'test',
-            rssi: rssi
-        }
-    ];
-    */
   setTimeout(function(){
     var data = [];	
     for(var i = 0; i < blueToothPeripheral.length; i++){
@@ -72,7 +53,6 @@ router.post('/api/deviceScan', function(req, res) {
     }
 
     res.send(data);
-//  res.send(foundDevices);
   }, 500);
 });
 
