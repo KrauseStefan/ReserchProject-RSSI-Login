@@ -8,18 +8,19 @@ For more information see appendix \ref{appendix:codeused}
 \subsection{Scenarios}
 
 The base scenario consists of a Raspberry Pi with custom software as the system.
-This system is the static part of the test scenarios and from it distance to nearby devices are measured.
-The devices in the test scenarios will be a collection of cell phones from different vendors and other wearables.
-The devices will be both static and moving depending on the test scenario.
+This system is the static part of the test scenarios and the distance to a nearby device is measured.
+%The device in the test scenario is an iPhone 5 cell phone and other wearables and will be both static and moving depending on the test scenario.
 
 
 
 \subsubsection{Single user moving towards system}
 \label{section:MovingTowardsSystem}
-In order for our authentication method to work a threshold, that determines if the user is close enough for authentication, must be set. The purpose of this experiment is to define this threshold by measuring the RSSI value of a single device at different differences, allowing us to define how close the user needs to be in order to be authenticated. 
+In order for nearby authentication to work a threshold, that determines if the user is close enough for authentication, must be set.
+
+The purpose of this experiment is to observe the relation between distance and RSSI value to make it possible to  define  this threshold. This is done by measuring the RSSI value of a single device at different differences, allowing us to define how close the user needs to be in order to be authenticated. 
 
 The system location is constant during this experiment. The device used is an iPhone 5. The RSSI values at different distances was measured. 
 
-This experiment was conducted in a regular indoor environment and outdoor, without any wifi interference. The purpose is to see what impact the environment has on the RSSI value.
+This experiment was conducted in a regular indoor environment and an outdoor environment, without any wifi interference. The purpose is to see what impact the environment has on the RSSI value.
 
 
