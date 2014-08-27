@@ -5,6 +5,10 @@ var fs = require('fs');
 
 
 function parseData(name, err, data){
+    if(err){
+        console.log(name, err);
+        return err;
+    }
     data = data.map(function(elm){
         return elm.RSSI;
     });
@@ -54,3 +58,4 @@ fs.readdirSync(__dirname).forEach(function(elm){
 // rs.pipe(parser);
 
 //console.log(JSON.stringify(input, null, "  "))
+
