@@ -2,13 +2,28 @@
 
 \subsection{Test setup}
 
-On Raspberry pi and Ubuntu we used the official bluetooth stack BlueZ.
+Our method requires the phone to be able to use the BLE peripheral role, and our server needs to be able to use the central role.
+\begin{itemize}
+	\item iOS 7 supports both BLE role
+	\item Linux supports both roles when running:
+	\begin{itemize}
+		\item BlueZ stack version $\geq$ 5.0
+		\item kernal $\geq$ 3.4 
+	\end{itemize}
+\end{itemize}
+%
+The specific devices used are a iPhone 5 as mobile device and a Raspberry Pi with a Logilink USB Bluetooth 4.0 dongle running raspbian linux as base station. See \cref{fig_solution_overview} to get a overview.
+
+The base station test system is build as a rapid prototype using node.js and the node module Noble.
+On iPhone we used the app LightBlue to advertise a BLE peripheral service.
+
 For more information see appendix \ref{appendix:codeused}
 
 \subsection{Scenarios}
 
-The base scenario consists of a Raspberry Pi with custom software as the system.
-This system is the static part of the test scenarios and the distance to a nearby device is measured.
+%The base scenario consists of a Raspberry Pi with custom software as the system.
+The base station is the static part of the test scenarios and the distance to a nearby mobile device is measured.
+
 %The device in the test scenario is an iPhone 5 cell phone and other wearables and will be both static and moving depending on the test scenario.
 
 
