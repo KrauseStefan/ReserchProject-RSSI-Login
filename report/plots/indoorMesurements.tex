@@ -1,0 +1,41 @@
+\begin{tikzpicture}
+  \begin{axis}
+    [
+	xlabel=meter,
+	ylabel=dBm,
+    xtick={1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+    xticklabels={0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20},
+    boxplot/draw direction=y
+    ]
+    
+    %0 Metres
+    %-46,-45,-61,-71,-44
+    \addplot+[
+        blue,
+	    boxplot prepared={
+	      median=-46,
+	      upper quartile=-45,
+	      lower quartile=-61,
+	      upper whisker=-71,
+	      lower whisker=-44
+	    },
+	    ] coordinates {};
+	    	    
+	%2 metres
+	%-69,-67,-75,-85,-63
+    \addplot+[
+        blue,
+        solid,
+        boxplot prepared={
+          median=-69,
+          upper quartile=-67,
+          lower quartile=-75,
+          upper whisker=-85,
+          lower whisker=-63
+        },
+        ] coordinates {};
+        
+
+\end{axis}
+	
+\end{tikzpicture}
