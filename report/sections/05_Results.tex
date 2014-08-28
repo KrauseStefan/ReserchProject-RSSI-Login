@@ -3,16 +3,16 @@
 
 In the following we present the results from the two scenarios.
 
-\subsection{Device moving towards base station}
-
-\begin{figure}		
-
-\input{plots/outdoorMesurements}
-
-\caption{ Outside Measurements }
-\label{graf_OutsideMesurements}
-
-\end{figure}
+\subsection{Dynamic distance}
+%
+%\begin{figure}		
+%
+%\input{plots/outdoorMesurements}
+%
+%\caption{ Outside Measurements }
+%\label{graf_OutsideMesurements}
+%
+%\end{figure}
 
 \begin{figure}		
 	
@@ -23,6 +23,14 @@ In the following we present the results from the two scenarios.
 	
 \end{figure}
 
+%The outdoor data from this scenario is presented on figure \cref{graf_OutsideMesurements}. 
+
+The data from this scenario is presented on figure \cref{graf_InsideMesurements}.
+
+Seeing how the value of the RSSI measured from the device fluctuates it is clear that RSSI is hard to use for distance measurements. From a mean around 45 when measured right on top of the system the RSSI value drops drastically within the first few meters. As the device moves further away from the system the RSSI value becomes lower but there is no apparant model to the decline.
+
+\subsection{Static distance}
+
 
 \begin{figure}
 	\input{plots/pdfPlots}
@@ -30,6 +38,3 @@ In the following we present the results from the two scenarios.
 	\caption{A larger example}
 \end{figure}
 
-Seeing how the value of the RSSI measured from the device fluctuates it is clear that RSSI is hard to use for distance measurements. From a mean around 45 when measured right on top of the system the RSSI value drops drastically within the first few meters distance. As the device moves further away from the system the RSSI value becomes lower but there is no apparant model to the decline.
-
-\subsection{Dynamic distance}
