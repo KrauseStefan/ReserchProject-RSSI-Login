@@ -1,0 +1,42 @@
+\begin{tikzpicture}
+  \begin{axis}
+    [
+	xlabel=meter,
+	ylabel=dBm,
+	xtick={1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+    xticklabels={0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20},
+    boxplot/draw direction=y
+    ]
+    
+
+%"00,0"
+\buildBoxPlot{-46}{ -45}{ -59}{ -63}{ -44}
+%"00,5"
+%\buildBoxPlot{-55}{ -55}{ -58}{ -60}{ -54}
+%"01"
+%\buildBoxPlot{-68}{ -67}{ -69}{ -72}{ -65}
+%"02"
+\buildBoxPlot{-70}{ -68}{ -74}{ -78}{ -65}
+%"04"
+\buildBoxPlot{-69}{ -69}{ -71}{ -72}{ -67}
+%"06"
+\buildBoxPlot{-78}{ -77}{ -78}{ -79}{ -73}
+%"08"
+\buildBoxPlot{-78}{ -77}{ -83}{ -83}{ -76}
+%"10"
+\buildBoxPlot{-78}{ -77}{ -79}{ -81}{ -75}
+%"12"
+\buildBoxPlot{-80}{ -78}{ -81}{ -84}{ -76}
+%"14"
+\buildBoxPlot{-77}{ -76}{ -77}{ -78}{ -75}
+%"18"
+\buildBoxPlot{-85}{ -83}{ -85}{ -89}{ -81}
+%"16"
+\buildBoxPlot{-81}{ -80}{ -81}{ -83}{ -78}
+%"20"
+\buildBoxPlot{-84}{ -83}{ -84}{ -87}{ -82}
+
+
+\end{axis}
+	
+\end{tikzpicture}
