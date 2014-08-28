@@ -3,19 +3,38 @@
 \subsection{Test setup}
 
 Our method requires the phone to be able to use the BLE peripheral role, and the server needs to be able to use the central role.
-\begin{itemize}
-	\item iOS 7 supports both BLE roles
-	\item Linux supports both roles when running:
-	\begin{itemize}
-		\item BlueZ stack version $\geq$ 5.0
-		\item kernal $\geq$ 3.4 
-	\end{itemize}
-\end{itemize}
-%
-The specific devices used are a iPhone 5 as mobile device and a Raspberry Pi with a Logilink USB Bluetooth 4.0 dongle running raspbian linux as base station. See \cref{fig_solution_overview} for an overview.
+
+The specific devices used are an iPhone 5 as mobile device and a Raspberry Pi with a Logilink USB Bluetooth 4.0 dongle running raspbian linux as base station. See \cref{fig_solution_overview} for an overview.
 
 The base station test system is build as a prototype using node.js and the Noble node module.
 On the iPhone 5 we used the app LightBlue to advertise a BLE peripheral service.
+
+Currently BLE is amongst other supported by a number of cell phones and wearables. 
+The devices tested during this research project is presented in \cref{table:devices}.
+
+\begin{table}[!t]
+\caption{Device descriptions}
+\label{table:devices}
+\centering
+% Some packages, such as MDW tools, offer better commands for making tables
+% than the plain LaTeX2e tabular which is used here.
+\begin{tabular}{|p{2.3cm}|p{1.3cm}|p{3.9cm}|}
+\hline
+\textbf{Device} & \textbf{Hardware Support} & \textbf{Software Support}\\
+\hline
+iPhone 5, iPhone 5s (IOS7) & Yes & Yes\\
+\hline
+Nexus 5 \newline (Kitkat 4.4.2) & Yes & Partial \newline
+Central role (Android 4.3)  \newline
+peripheral role (Android~L)\\
+\hline
+Pebble Smartwatch (Pebble OS 2.0) & Yes & Peripheral role\\
+\hline
+Raspberry Pi (Raspian Linux) and Logilink USB Bluetooth 4.0 dongle & Yes & Yes using BlueZ stack version $\geq$ 5.0 and kernel $\geq$ 3.4\\
+\hline
+
+\end{tabular}
+\end{table}
 
 %For more information see appendix \ref{appendix:codeused}
 
