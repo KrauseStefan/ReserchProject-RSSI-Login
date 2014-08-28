@@ -8,8 +8,10 @@
 		$scope.model = {
 			rssiThressholdUpper: -75,
 			rssiThressholdLower: -65,
-			maxAge: 30*1000 //30 seconds
+			maxAge: 30*1000, //30 seconds
+			filterSize: 5
 		};
+		
 		$scope.knowenDevices = [];
 		$scope.nearbyDevices = [];
 		$scope.validateDevice = validateDevice;
@@ -19,18 +21,28 @@
 			doDeviceScan();
 		});
 
+		function getMedian(list){
+			var median = list.length/2
+			if(median % 1 === 0){
+				var sum = list[Math.ceil(median)] +list[Math.floor(median)];
+				return sum / 2;
+			}else{
+				return list[Math.ceil(median)];
+			}
+		}
+
 		function validateDevice(device){
-			if(!device){
+			if(!device || device.rssiHistory.length < $scope.model.filterSize){
 				return false;
 			}
-			var lastTen = device.rssiHistory.slice(0, 20);
-			var avgRssi = lastTen.reduce(function(preVal, curVal){return preVal + curVal;}, 0) / lastTen.length;
+			var latestValues = device.rssiHistory.slice(0, $scope.model.filterSize).sort();
+			var avgRssi = latestValues.reduce(function(preVal, curVal){return preVal + curVal;}, 0) / latestValues.length;
 			device.avgRssi = avgRssi;
+			device.medianRssi = getMedian(latestValues);
 			if(device.valid){
-				device.valid = device.isKnowen && avgRssi >= $scope.model.rssiThressholdUpper;
-
+				device.valid = device.isKnowen && device.medianRssi >= $scope.model.rssiThressholdUpper;
 			}else{
-				device.valid = device.isKnowen && avgRssi >= $scope.model.rssiThressholdLower;
+				device.valid = device.isKnowen && device.medianRssi >= $scope.model.rssiThressholdLower;
 			}
 			return device.valid;
 		}

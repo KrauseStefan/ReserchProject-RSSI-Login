@@ -22,11 +22,14 @@ router.get('/api/knowenDevices', function(req, res) {
       UUID: '001a7dda7108',
       localName: 'pi krause'
     },{    
-      UUID: '691a67d448a4',
+      UUID: '4725c15bade8',
       localName: 'android Phone'
-    }, {1
+    }, {
       UUID: '749b1318ff19',
       localName: 'Theis iPhone'      
+    }, {
+      UUID: '4adf26bd984c',
+      localName: 'Thomas iPhone'      
     }
   ];
 
@@ -37,7 +40,6 @@ var blueToothPeripheral = [];
 var rssi = 88;
 var min = 60;
 var max = 100;
-var goingUp = true;
 
 router.post('/api/deviceScan', function(req, res) {
 
