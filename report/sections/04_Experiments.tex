@@ -2,9 +2,9 @@
 
 \subsection{Test setup}
 
-Our method requires the phone to be able to use the BLE peripheral role, and our server needs to be able to use the central role.
+Our method requires the phone to be able to use the BLE peripheral role, and the server needs to be able to use the central role.
 \begin{itemize}
-	\item iOS 7 supports both BLE role
+	\item iOS 7 supports both BLE roles
 	\item Linux supports both roles when running:
 	\begin{itemize}
 		\item BlueZ stack version $\geq$ 5.0
@@ -14,15 +14,15 @@ Our method requires the phone to be able to use the BLE peripheral role, and our
 %
 The specific devices used are a iPhone 5 as mobile device and a Raspberry Pi with a Logilink USB Bluetooth 4.0 dongle running raspbian linux as base station. See \cref{fig_solution_overview} for an overview.
 
-The base station test system is build as a prototype using node.js and the node module Noble.
+The base station test system is build as a prototype using node.js and the Noble node module.
 On the iPhone 5 we used the app LightBlue to advertise a BLE peripheral service.
 
-For more information see appendix \ref{appendix:codeused}
+%For more information see appendix \ref{appendix:codeused}
 
 \subsection{Scenarios}
 
 %The base scenario consists of a Raspberry Pi with custom software as the system.
-The following was conducted with the base station being static throughout the experiments.
+The following experiment was conducted with the base station being static throughout the experiments.
 
 %The device in the test scenario is an iPhone 5 cell phone and other wearables and will be both static and moving depending on the test scenario.
 
@@ -30,9 +30,9 @@ The following was conducted with the base station being static throughout the ex
 \label{section:MovingTowardsSystem}
 In order for nearby authentication to work a threshold, that determines if the user is close enough for authentication, must be set.
 
-The purpose of this experiment is to observe the relation between distance and RSSI value to make it possible to  define  this threshold. This is done by measuring the RSSI value of a single device at different differences, allowing us to define how close the user needs to be in order to be authenticated.
+The purpose of this experiment is to observe the relation between distance and RSSI value to make it possible to  define  this threshold. This is done by measuring the RSSI value of a single device at different distances, allowing us to define how close the user needs to be in order to be authenticated.
 
-The system location is constant during this experiment. The device used is an iPhone 5. The RSSI values at different distances was measured. 
+The system location is constant during this experiment. The device used is an iPhone 5.
 
 This experiment was conducted in a regular indoor environment and an outdoor environment, without any wifi interference. The purpose is to see what impact the environment has on the RSSI value.
 
