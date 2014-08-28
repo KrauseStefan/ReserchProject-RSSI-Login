@@ -3,8 +3,10 @@ ReserchProject-RSSI-Proximiti-detection
 
 Proximiti-detection Method using RSSI of a Bluetooth Low Energy Device, with intention of authentication.
 
-Handy commands, in genral BLE actions needs root premisions and both commands and node should be run with sudo
-The devices needs to be configured to use Bluetooth LE, this is done by running the command 
+Handy commands, in genral BLE actions needs root premisions and both commands and node should be run with sudo.
+
+The devices needs to be configured to use Bluetooth LE, this is done by running the command
+
 `sudo hciconfig hci0 leadv` This gives the device the Peripherals role, and the device starts advertising BLE information.
 
 If node is installed manyaly path might ned to be set for the root user, it can be done like this:
