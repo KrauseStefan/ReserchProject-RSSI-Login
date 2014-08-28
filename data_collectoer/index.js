@@ -34,17 +34,26 @@ function calculateMedian(value){
 
 console.log("Time,UUID,LocalName,RSSI,MedianRSSI")
 
+var lockedUuid;
+
 noble.on('discover', function(peripheral){
 //    if(!peripheral) console.log("empty");    
 
 
 
     setInterval(function(){
-       var row = moment().format() + "," +
-                 peripheral.uuid + "," +
-                 peripheral.advertisement.localName + "," +
-                 peripheral.rssi + "," +
-                 calculateMedian(peripheral.rssi);
+
+      if(!lockedUuid){
+        lockedUuid = peripheral.uuid;
+      }else if(peripheral.uuid !== lockedUuid){
+        return;
+      }
+
+      var row = moment().format() + "," +
+                peripheral.uuid + "," +
+                peripheral.advertisement.localName + "," +
+                peripheral.rssi + "," +
+                calculateMedian(peripheral.rssi);
 
         console.log(row);
     }, 200);
