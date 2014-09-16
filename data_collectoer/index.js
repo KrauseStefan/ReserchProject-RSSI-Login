@@ -52,7 +52,9 @@ noble.on('discover', function(peripheral){
     return;
   }
 
-  console.log(JSON.stringify(peripheral, null, '  '));
+  for(var i in peripheral){
+    console.log(i + ': ' + peripheral[i]);    
+  }
 
   peripheral.on('rssiUpdate', function(rssi){
     console.log('I was here')
