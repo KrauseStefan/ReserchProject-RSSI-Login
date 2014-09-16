@@ -52,7 +52,7 @@ noble.on('discover', function(peripheral){
     return;
   }
 
-  console.log('Device found')
+  console.log(JSON.stringify(peripheral, null, '  '));
 
   peripheral.on('rssiUpdate', function(rssi){
     console.log('I was here')
