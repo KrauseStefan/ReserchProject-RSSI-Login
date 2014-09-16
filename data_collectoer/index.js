@@ -1,10 +1,10 @@
-// var noble = require('noble');
+var noble = require('noble');
 var moment = require('moment');
 
-var noble = {
-  on: function(){},
-  startScanning: function(){}
-}
+// var noble = {
+//   on: function(){},
+//   startScanning: function(){}
+// }
 var updateInterval = 200; //ms
 
 // var peripheral = {
