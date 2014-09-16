@@ -45,13 +45,13 @@ noble.on('discover', function(peripheral){
     lockedUuid = peripheral.uuid;
   }
   peripheral.on('rssiUpdate', function(rssi){
-//    setInterval(function(){
+  // setInterval(function(){
 
-  if(!lockedUuid){
-    lockedUuid = peripheral.uuid;
-  }else if(peripheral.uuid !== lockedUuid){
-    return;
-  }
+  // if(!lockedUuid){
+  //   lockedUuid = peripheral.uuid;
+  // }else if(peripheral.uuid !== lockedUuid){
+  //   return;
+  // }
 
   var row = moment().format() + "," +
             peripheral.uuid + "," +
@@ -63,14 +63,14 @@ noble.on('discover', function(peripheral){
   }//, updateInterval);
 });
 
-function moniterDevice(){
-  peripheral.on('rssiUpdate', callback(rssi));
-}
-
-
-
 noble.startScanning(); // any service UUID, no duplicates
 
+var timerInst = setTimeout(function(){
+  console.log("times up!");
+
+}, updateInterval * 60);
+
+// clearInterval(timerInst);
 
 
   
