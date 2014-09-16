@@ -1,10 +1,11 @@
-// var noble = require('noble');
+var noble = require('noble');
 var moment = require('moment');
 
-var noble = {
-  on: function(){},
-  startScanning: function(){}
-}
+// var noble = {
+//   on: function(){},
+//   startScanning: function(){}
+// }
+
 var updateInterval = 200; //ms
 
 // var peripheral = {
@@ -46,30 +47,37 @@ noble.on('discover', function(peripheral){
 
   if(!lockedUuid){
     lockedUuid = peripheral.uuid;
+  }else if(peripheral.uuid !== lockedUuid){
+    return;
   }
-  peripheral.on('rssiUpdate', function(rssi){
-  // setInterval(function(){
 
-  // if(!lockedUuid){
-  //   lockedUuid = peripheral.uuid;
-  // }else if(peripheral.uuid !== lockedUuid){
-  //   return;
-  // }
 
-  var row = moment().format() + "," +
-            peripheral.uuid + "," +
-            peripheral.advertisement.localName + "," +
-            rssi + "," +
-            calculateMedian(peripheral.rssi);
+  for(var i in peripheral){
+    console.log(i + ': ' + peripheral[i]);    
+  }
+  console.log(peripheral.toString());    
+
+  peripheral.on('rssiUpdate', function(error, rssi){
+    console.log('I was here')
+    // setInterval(function(){
+
+    var row = moment().format() + "," +
+              peripheral.uuid + "," +
+              peripheral.advertisement.localName + "," +
+              rssi + "," +
+              calculateMedian(peripheral.rssi);
 
     console.log(row);
   });//, updateInterval);
 });
 
-noble.startScanning(); // any service UUID, no duplicates
+var scanForDevices = [];
+var allowDoublicates = false;
+noble.startScanning(scanForDevices, allowDoublicates); // any service UUID, no duplicates
 
 var timerInst = setTimeout(function(){
   console.log("times up!");
+  noble.stopScanning();
 
 }, updateInterval * 60);
 
