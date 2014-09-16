@@ -51,9 +51,11 @@ noble.on('discover', function(peripheral){
     return;
   }
 
+
   for(var i in peripheral){
     console.log(i + ': ' + peripheral[i]);    
   }
+  console.log(peripheral.toString());    
 
   peripheral.on('rssiUpdate', function(error, rssi){
     console.log('I was here')
