@@ -45,12 +45,15 @@ var lockedUuid;
 noble.on('discover', function(peripheral){
 //    if(!peripheral) console.log("empty");
 
-  console.log('I was here')
+  console.log('Device found')
   if(!lockedUuid){
     lockedUuid = peripheral.uuid;
   }else if(peripheral.uuid !== lockedUuid){
     return;
   }
+
+  console.log('Device found')
+
   peripheral.on('rssiUpdate', function(rssi){
     console.log('I was here')
     // setInterval(function(){
@@ -65,10 +68,13 @@ noble.on('discover', function(peripheral){
   });//, updateInterval);
 });
 
-noble.startScanning(); // any service UUID, no duplicates
+var scanForDevices = [];
+var allowDoublicates = false;
+noble.startScanning(scanForDevices, allowDoublicates); // any service UUID, no duplicates
 
 var timerInst = setTimeout(function(){
   console.log("times up!");
+  noble.stopScanning()();
 
 }, updateInterval * 60);
 
