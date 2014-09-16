@@ -1,7 +1,10 @@
-var noble = require('noble');
+// var noble = require('noble');
 var moment = require('moment');
 
-
+var noble = {
+  on: function(){},
+  startScanning: function(){}
+}
 var updateInterval = 200; //ms
 
 // var peripheral = {
@@ -60,7 +63,7 @@ noble.on('discover', function(peripheral){
             calculateMedian(peripheral.rssi);
 
     console.log(row);
-  }//, updateInterval);
+  });//, updateInterval);
 });
 
 noble.startScanning(); // any service UUID, no duplicates
