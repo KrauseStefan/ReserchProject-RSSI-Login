@@ -48,7 +48,7 @@ However if exact distance is not necessary and knowledge of environment and devi
 
 \subsubsection{Noise reduction filter}
 In order to reduce the noise of the RSSI measurements a standard median-filter was added to the system.
-When looking at the results plotted in \cref{graf_DynamicMesurements} we see some noise with a few extreme values.
+Preliminary experiments have shown some noise with a few extreme values.
 The extreme values must be filtered. Both a median and a mean can do this but with a median filter these values can be filtered completely out and does not register in the output. Any small deviations normally handled by a mean filter will be handled by the hysteresis threshold.
 
 \subsubsection{Hysteresis thresholds}
