@@ -1,6 +1,10 @@
 var noble = require('noble');
 var moment = require('moment');
 
+// var noble = {
+//   on: function(){},
+//   startScanning: function(){}
+// }
 
 var updateInterval = 200; //ms
 
@@ -41,32 +45,36 @@ var lockedUuid;
 noble.on('discover', function(peripheral){
 //    if(!peripheral) console.log("empty");
 
+  console.log('Device found')
   if(!lockedUuid){
     lockedUuid = peripheral.uuid;
+  }else if(peripheral.uuid !== lockedUuid){
+    return;
   }
+
+  console.log(JSON.stringify(peripheral, null, '  '));
+
   peripheral.on('rssiUpdate', function(rssi){
-  // setInterval(function(){
+    console.log('I was here')
+    // setInterval(function(){
 
-  // if(!lockedUuid){
-  //   lockedUuid = peripheral.uuid;
-  // }else if(peripheral.uuid !== lockedUuid){
-  //   return;
-  // }
-
-  var row = moment().format() + "," +
-            peripheral.uuid + "," +
-            peripheral.advertisement.localName + "," +
-            rssi + "," +
-            calculateMedian(peripheral.rssi);
+    var row = moment().format() + "," +
+              peripheral.uuid + "," +
+              peripheral.advertisement.localName + "," +
+              rssi + "," +
+              calculateMedian(peripheral.rssi);
 
     console.log(row);
-  }//, updateInterval);
+  });//, updateInterval);
 });
 
-noble.startScanning(); // any service UUID, no duplicates
+var scanForDevices = [];
+var allowDoublicates = false;
+noble.startScanning(scanForDevices, allowDoublicates); // any service UUID, no duplicates
 
 var timerInst = setTimeout(function(){
   console.log("times up!");
+  noble.stopScanning()();
 
 }, updateInterval * 60);
 
