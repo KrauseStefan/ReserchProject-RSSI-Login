@@ -5,6 +5,7 @@ var moment = require('moment');
 //   on: function(){},
 //   startScanning: function(){}
 // }
+
 var updateInterval = 200; //ms
 
 // var peripheral = {
@@ -44,23 +45,21 @@ var lockedUuid;
 noble.on('discover', function(peripheral){
 //    if(!peripheral) console.log("empty");
 
+  console.log('I was here')
   if(!lockedUuid){
     lockedUuid = peripheral.uuid;
+  }else if(peripheral.uuid !== lockedUuid){
+    return;
   }
   peripheral.on('rssiUpdate', function(rssi){
-  // setInterval(function(){
+    console.log('I was here')
+    // setInterval(function(){
 
-  // if(!lockedUuid){
-  //   lockedUuid = peripheral.uuid;
-  // }else if(peripheral.uuid !== lockedUuid){
-  //   return;
-  // }
-
-  var row = moment().format() + "," +
-            peripheral.uuid + "," +
-            peripheral.advertisement.localName + "," +
-            rssi + "," +
-            calculateMedian(peripheral.rssi);
+    var row = moment().format() + "," +
+              peripheral.uuid + "," +
+              peripheral.advertisement.localName + "," +
+              rssi + "," +
+              calculateMedian(peripheral.rssi);
 
     console.log(row);
   });//, updateInterval);
