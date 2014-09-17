@@ -3,12 +3,23 @@
 var parse = require('csv').parse;
 var fs = require('fs');
 
+var TEST_TIME = 20; //minutes
 
 function parseData(name, err, data){
     if(err){
         console.log(name, err);
         return err;
     }
+    var minute = 60 * 1000;
+    var startTime = new Date(data.[0].Time).getTime();
+    var endTime = startTime + TEST_TIME * minute;
+    for(var i = 0; data.length; i++){
+        if(new Date(data.[i].Time).getTime() >= endTime){
+            data = data.slice(0, i);
+            break;
+        }
+    }
+
     data = data.map(function(elm){
         return elm.RSSI;
     });
