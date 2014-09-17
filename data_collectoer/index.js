@@ -51,24 +51,22 @@ noble.on('discover', function(peripheral){
     return;
   }
 
-
-  for(var i in peripheral){
-    console.log(i + ': ' + peripheral[i]);    
-  }
   console.log(peripheral.toString());    
 
-  peripheral.on('rssiUpdate', function(error, rssi){
-    console.log('I was here')
-    // setInterval(function(){
+  peripheral.connect(function(){
+    peripheral.on('rssiUpdate', function(error, rssi){
+      console.log('I was here')
+      // setInterval(function(){
 
-    var row = moment().format() + "," +
-              peripheral.uuid + "," +
-              peripheral.advertisement.localName + "," +
-              rssi + "," +
-              calculateMedian(peripheral.rssi);
+      var row = moment().format() + "," +
+                peripheral.uuid + "," +
+                peripheral.advertisement.localName + "," +
+                rssi + "," +
+                calculateMedian(peripheral.rssi);
 
-    console.log(row);
-  });//, updateInterval);
+      console.log(row);
+    });//, updateInterval);    
+  });
 });
 
 var scanForDevices = [];
@@ -77,7 +75,7 @@ noble.startScanning(scanForDevices, allowDoublicates); // any service UUID, no d
 
 var timerInst = setTimeout(function(){
   console.log("times up!");
-  noble.stopScanning();
+//  noble.stopScanning();
 
 }, updateInterval * 60);
 

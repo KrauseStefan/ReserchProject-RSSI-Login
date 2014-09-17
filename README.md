@@ -9,7 +9,7 @@ The devices needs to be configured to use Bluetooth LE, this is done by running 
 
 `sudo hciconfig hci0 leadv` This gives the device the Peripherals role, and the device starts advertising BLE information.
 
-`sudo hcitool -i hci1 lescan` This start a continuous scan for BLE devices.
+`sudo hcitool -i hci0 lescan` This start a continuous scan for BLE devices.
 
 If node is installed manyaly path might ned to be set for the root user, it can be done like this:
 `PATH=\$PATH:/home/pi/node-v0.10.26-linux-arm-pi/bin`
