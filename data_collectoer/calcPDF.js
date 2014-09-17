@@ -11,10 +11,10 @@ function parseData(name, err, data){
         return err;
     }
     var minute = 60 * 1000;
-    var startTime = new Date(data.[0].Time).getTime();
+    var startTime = new Date(data[0].Time).getTime();
     var endTime = startTime + TEST_TIME * minute;
     for(var i = 0; data.length; i++){
-        if(new Date(data.[i].Time).getTime() >= endTime){
+        if(new Date(data[i].Time).getTime() >= endTime){
             data = data.slice(0, i);
             break;
         }
