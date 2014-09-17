@@ -49,7 +49,7 @@ function parseData(name, err, data){
 
 console.log("value,Number");
 
-var fileName = __dirname + "/" + process.argv[2]
+var fileName = __dirname + "/" + process.argv[2];
 var rs = fs.createReadStream(fileName);
 parser = parse({columns: true}, parseData.bind(this, fileName));
 rs.pipe(parser);

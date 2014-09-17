@@ -39,8 +39,8 @@ function calculateMedian(value){
     return (sorted[i - 1] + sorted[i]) / 2; //-1 because zero indexed
   }
 }
-
-var lockedUuid = '5A:B2:84:B8:36:6D'.replace(/:/g, '').toLowerCase();
+var UUID = process.argv[2] | '5A:B2:84:B8:36:6D';
+var lockedUuid = UUID.replace(/:/g, '').toLowerCase();
 var count = 0;
 console.log('Time,UUID,LocalName,RSSI,MedianRSSI')
 noble.addListener('discover', function(peripheral){
