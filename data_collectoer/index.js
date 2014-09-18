@@ -4,6 +4,11 @@ var moment = require('moment');
 var updateInterval = 200; //ms
 var bufferSize = 7;
 
+var UUID = process.argv[2];
+var numberOfTests = process.argv[3] || 150;
+
+numberOfTests = parseInt(numberOfTests, 10);
+
 // var peripheral = {
 //   uuid: "<uuid>",
 //   advertisement: {
@@ -39,8 +44,7 @@ function calculateMedian(value){
     return (sorted[i - 1] + sorted[i]) / 2; //-1 because zero indexed
   }
 }
-var UUID = process.argv[2] || '5A:B2:84:B8:36:6D';
-var lockedUuid = UUID.replace(/:/g, '').toLowerCase();
+var lockedUuid = (UUID ? UUID.replace(/:/g, '').toLowerCase() : null);
 var count = 0;
 console.log('Time,UUID,LocalName,RSSI,MedianRSSI')
 noble.addListener('discover', function(peripheral){
@@ -60,7 +64,7 @@ noble.addListener('discover', function(peripheral){
   console.log(row);
   count++;
 
-  if(count >= 60){
+  if(count >= numberOfTests){
     process.exit(0);
   }
 
