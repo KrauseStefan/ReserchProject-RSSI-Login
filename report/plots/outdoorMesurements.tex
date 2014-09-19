@@ -245,3 +245,71 @@ boxplot/draw direction=y
 \end{axis}
 
 \end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}
+[
+xlabel=meter,
+ylabel=dBm,
+xtick={1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14},
+xticklabels={0.5, 1, 2, 3, 4, 6, 8, 10, 12, 14, 16, 18, 20},
+boxplot/draw direction=y
+]
+
+
+%%"00"                                 
+%\buildBoxPlot{-13}{-12}{-15}{-16}{-10}
+%"00.5"                               
+\buildBoxPlot{-46}{-44}{-47}{-51}{-41}
+%"01"                                 
+\buildBoxPlot{-62}{-60}{-70}{-91}{-52}
+%"02"                                 
+\buildBoxPlot{-61}{-60}{-62}{-71}{-53}
+%"03"                                 
+\buildBoxPlot{-67}{-61}{-71}{-77}{-55}
+%"04"                                 
+\buildBoxPlot{-65}{-64}{-67}{-84}{-60}
+%%"05"                                 
+%\buildBoxPlot{-72}{-69}{-75}{-93}{-65}
+%"06"                                 
+\buildBoxPlot{-68}{-64}{-71}{-76}{-62}
+%%"07"                                 
+%\buildBoxPlot{-71}{-69}{-75}{-80}{-65}
+%"08"                                 
+\buildBoxPlot{-71}{-68}{-74}{-84}{-65}
+%%"09"                                 
+%\buildBoxPlot{-71}{-68}{-79}{-91}{-65}
+%"10"                                 
+\buildBoxPlot{-71}{-71}{-72}{-77}{-67}
+%"12"                                 
+\buildBoxPlot{-70}{-67}{-73}{-75}{-64}
+%"14"                                 
+\buildBoxPlot{-77}{-75}{-80}{-94}{-63}
+%"16"                                 
+\buildBoxPlot{-71}{-70}{-75}{-84}{-68}
+%"18"                                 
+\buildBoxPlot{-78}{-75}{-86}{-92}{-69}
+%"20"                                 
+\buildBoxPlot{-82}{-79}{-83}{-93}{-72} 
+
+
+\addplot[thick, red] coordinates {
+	(1  ,-46)
+	(2  ,-62)
+	(3  ,-61)	
+	(4  ,-67)	
+	(5  ,-65)	
+	(6  ,-68)
+	(7  ,-71)
+	(8  ,-71)
+	(9 ,-70)
+	(10 ,-77)
+	(11 ,-71)
+	(12 ,-78)
+	(13 ,-82)
+	
+};
+
+\end{axis}
+
+\end{tikzpicture}
