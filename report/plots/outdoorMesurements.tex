@@ -1,44 +1,44 @@
-\begin{tikzpicture}
-  \begin{axis}
-    [
-	xlabel=meter,
-	ylabel=dBm,
-	xtick={1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
-    xticklabels={0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20},
-    boxplot/draw direction=y
-    ]
-    
-
-%"00,0"
-\buildBoxPlot{-46}{-45}{-61}{-71}{-44}
-%"00,5"
-%\buildBoxPlot{-57}{-55}{-59}{-61}{-54}
-%"01"
-%\buildBoxPlot{-68}{-67}{-69}{-75}{-65}
-%"02"
-\buildBoxPlot{-69}{-67}{-75}{-85}{-63}
-%"04"
-\buildBoxPlot{-70}{-69}{-71}{-74}{-67}
-%"06"
-\buildBoxPlot{-78}{-76}{-79}{-81}{-72}
-%"08"
-\buildBoxPlot{-78}{-77}{-83}{-90}{-76}
-%"10"
-\buildBoxPlot{-78}{-77}{-80}{-83}{-75}
-%"12"
-\buildBoxPlot{-80}{-77}{-82}{-86}{-75}
-%"14"
-\buildBoxPlot{-77}{-76}{-77}{-78}{-74}
-%"16"
-\buildBoxPlot{-81}{-80}{-82}{-84}{-78}
-%"18"
-\buildBoxPlot{-85}{-83}{-85}{-91}{-81}
-%"20"
-\buildBoxPlot{-84}{-84}{-85}{-88}{-81}
-
-\end{axis}
-	
-\end{tikzpicture}
+%\begin{tikzpicture}
+%  \begin{axis}
+%    [
+%	xlabel=meter,
+%	ylabel=dBm,
+%	xtick={1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+%    xticklabels={0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20},
+%    boxplot/draw direction=y
+%    ]
+%    
+%
+%%"00,0"
+%\buildBoxPlot{-46}{-45}{-61}{-71}{-44}
+%%"00,5"
+%%\buildBoxPlot{-57}{-55}{-59}{-61}{-54}
+%%"01"
+%%\buildBoxPlot{-68}{-67}{-69}{-75}{-65}
+%%"02"
+%\buildBoxPlot{-69}{-67}{-75}{-85}{-63}
+%%"04"
+%\buildBoxPlot{-70}{-69}{-71}{-74}{-67}
+%%"06"
+%\buildBoxPlot{-78}{-76}{-79}{-81}{-72}
+%%"08"
+%\buildBoxPlot{-78}{-77}{-83}{-90}{-76}
+%%"10"
+%\buildBoxPlot{-78}{-77}{-80}{-83}{-75}
+%%"12"
+%\buildBoxPlot{-80}{-77}{-82}{-86}{-75}
+%%"14"
+%\buildBoxPlot{-77}{-76}{-77}{-78}{-74}
+%%"16"
+%\buildBoxPlot{-81}{-80}{-82}{-84}{-78}
+%%"18"
+%\buildBoxPlot{-85}{-83}{-85}{-91}{-81}
+%%"20"
+%\buildBoxPlot{-84}{-84}{-85}{-88}{-81}
+%
+%\end{axis}
+%	
+%\end{tikzpicture}
 
 
 \begin{tikzpicture}
@@ -46,7 +46,6 @@
 [
 xlabel=meter,
 ylabel=dBm,
-ymax=-20,
 xtick={1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14},
 xticklabels={0.5, 1, 2, 3, 4, 6, 8, 10, 12, 14, 16, 18, 20},
 boxplot/draw direction=y
@@ -121,8 +120,8 @@ boxplot/draw direction=y
 ]
 
 
-%"00"
-\buildBoxPlot{-19}{-18}{-22}{-23}{-18}
+%%"00"
+%\buildBoxPlot{-19}{-18}{-22}{-23}{-18}
 %"00.5"
 \buildBoxPlot{-43}{-42}{-45}{-49}{-41}
 %"01"
@@ -158,20 +157,19 @@ boxplot/draw direction=y
 
 
 \addplot[thick, red] coordinates {
-	(1  ,-19)
-	(2  ,-43)
-	(3  ,-50)
-	(4  ,-58)	
-	(5  ,-61)	
-	(6  ,-63)	
-	(7  ,-65)
-	(8  ,-73)
-	(9  ,-62)
-	(10 ,-65)
-	(11 ,-63)
-	(12 ,-71)
-	(13 ,-68)
-	(14 ,-75)
+	(1  ,-43)
+	(2  ,-50)
+	(3  ,-58)	
+	(4  ,-61)	
+	(5  ,-63)	
+	(6  ,-65)
+	(7  ,-73)
+	(8  ,-62)
+	(9 ,-65)
+	(10 ,-63)
+	(11 ,-71)
+	(12 ,-68)
+	(13 ,-75)
 		
 };
 
