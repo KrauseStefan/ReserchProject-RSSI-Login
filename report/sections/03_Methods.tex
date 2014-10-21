@@ -1,9 +1,8 @@
-\section{Methods}
+% !TeX spellcheck = en_US
+\chapter{Proposed method}
 
 %\subsection{Existing methods}
 %We found no existing methods for authentication via. Bluetooth RSSI values.
-
-\subsection{Proposed method}
 
 The proposed method overview is presented on \cref{fig_solution_overview}. A "Base station" is a stationary device, which authenticates the user.
 
@@ -11,7 +10,7 @@ The base station reads the RSSI value from the Phone's BLE signal and uses a med
 
 The following explains the components in detail.
 
-\subsubsection{RSSI for proximity detection}
+\section{RSSI for proximity detection}
 
 RSSI measures the signal quality between 2 transmitters.
 
@@ -46,12 +45,12 @@ However if exact distance is not necessary and knowledge of environment and devi
 % When the user is close enough to be partially authenticated the system thus has preloaded information and may be able to present additional relevant data based on the preloaded information from earlier sessions. 
 % \cref{fig_proximity_based_login} illustrates the concept of preloading information based on the users proximity to the system.
 
-\subsubsection{Noise reduction filter}
+\section{Noise reduction filter}
 In order to reduce the noise of the RSSI measurements a standard median-filter was added to the system.
 Preliminary experiments have shown some noise with a few extreme values.
 The extreme values must be filtered. Both a median and a mean can do this but with a median filter these values can be filtered completely out and does not register in the output. Any small deviations normally handled by a mean filter will be handled by the hysteresis threshold.
 
-\subsubsection{Hysteresis thresholds}
+\section{Hysteresis thresholds}
 When the strength of the filtered RSSI signal reaches the predefined upper threshold, the user is sufficiently close to interact with the system, and the user will be partially authenticated.
 When a user has been authenticated but decides to move away from the system the user will be de-authenticated when the RSSI reaches a predefined lower threshold.
 This prevents the user from being constantly logged in and out when the RSSI value is close to a single threshold.
