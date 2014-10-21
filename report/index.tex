@@ -2,11 +2,20 @@
 
 \documentclass[a4paper,oneside,11pt]{memoir}
 
+\usepackage[utf8]{inputenc} % Input encoding - Depending on the editor
+\usepackage{lmodern} % Modern LaTeX font
+\usepackage[english]{babel} % Language package <- CHANGE LANGUAGE HERE
+\usepackage[T1]{fontenc} % Hyphenation
+\usepackage{fix-cm} % Fix for cm
+
+\usepackage{xcolor} % To define colors
 % Used to generate links, can be removed for final version
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 %used for \cref
 \usepackage{cleveref}
+\usepackage{lipsum} % Debugging text
 
+\usepackage{sansmath} % Font for floats
 %\usepackage{listings}
 
 \newcommand{\shellcmd}[1]{\\\texttt{\footnotesize\# #1}}
@@ -37,7 +46,157 @@
 
 \usepackage{url}
 
+
+\newsubfloat{figure} % Declaring subfloats of figures
+\newsubfloat{table} % Declaring subfloats of tables
+\captionnamefont{\sffamily\sansmath\small} % Fontstyle of caption
+\captiontitlefont{\sffamily\sansmath\small} % Fontsyle of caption
+
+\definecolor{ase_blue}{RGB}{10,55,136} % The ASE blue color
+
+%---------------------------------------------------------------------------%
+%---------------------------- MARGIN CONTROL -------------------------------%
+%---------------------------------------------------------------------------%
+\setlrmarginsandblock{3.5cm}{2.5cm}{*}
+\setulmarginsandblock{3cm}{*}{1.2}
+\checkandfixthelayout[nearest]
+\setlength{\evensidemargin}{\oddsidemargin}
+
+%--------------------------------------------------------------------------%
+%------------------------- FRONTPAGE - PROPERTIES -------------------------%
+%--------------------------------------------------------------------------%
+\usepackage{soul} % Letterspace package
+\sodef\an{}{0.05em}{.5em plus.6em}{1em plus.1em minus.1em}
+\newcommand\stext[1]{\an{\scshape#1}}
+\newcommand{\logoHuge}{\fontsize{0.55cm}{0.8cm}\selectfont}
+\newcommand{\SuperHuge}{\fontsize{1.2cm}{1.8cm}\selectfont}
+
+
+%--------------------------------------------------------------------------%
+%------------------------- PAGESTYLE - PROPERTIES -------------------------%
+%--------------------------------------------------------------------------%
+%\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{#1}}{}}
+
+\makepagestyle{ase_report}
+\makeoddhead{ase_report}{}{\small\sffamily\leftmark}{}
+\makeoddfoot{ase_report}{}{}{\small\sffamily\thepage}
+
+\makeatletter
+\makepsmarks{ase_report}{%
+	\renewcommand\chaptermark[1]{%
+		\markboth{%
+			\ifnum \value{secnumdepth} > 1
+			\if@mainmatter % 
+			\@chapapp\ \thechapter. \ %
+			\fi
+			\fi
+			##1}{}}
+	\renewcommand\lofmark{\markboth{\listfigurename}{\listfigurename}}%
+	\renewcommand\lotmark{\markboth{\listtablename}{\listtablename}}%
+	\renewcommand\bibmark{\markboth{\bibname}{\bibname}}%
+	\renewcommand\indexmark{\markboth{\indexname}{\indexname}}%
+	\renewcommand\sectionmark[1]{\markright{##1}}%
+	\renewcommand\subsectionmark[1]{\markright{##1}}%
+	\renewcommand\subsubsectionmark[1]{\markright{##1}}%
+}
+
+\copypagestyle{plain}{ase_report}
+\makeoddhead{plain}{}{}{}
+\makeoddfoot{plain}{}{}{\small\sffamily\thepage}
+
+\pagestyle{ase_report}
+\aliaspagestyle{chapter}{plain}
+
+
+
+%--------------------------------------------------------------------------%
+%--------------------- HEADING - SECTION ----------------------------------%
+%--------------------------------------------------------------------------%
+\newcommand{\ruledsec}[1]{%
+	\Large\bfseries\sffamily\raggedright #1
+	\color{ase_blue}\nopagebreak\rule[15pt]{\textwidth}{1.0pt}} % Section with ruler
+\setsecheadstyle{\ruledsec} % Define section head style
+
+\setfloatlocations{figure}{htp}
+\setfloatlocations{table}{htp}
+
+
+
+%--------------------------------------------------------------------------%
+%--------------------- HEADING - SUBs-SECTION -----------------------------%
+%--------------------------------------------------------------------------%
+\addtocounter{secnumdepth}{2} % Depth numbering
+
+\setsubsecheadstyle{\large\bfseries\sffamily\raggedright}
+\setsubsubsecheadstyle{\bfseries\sffamily\raggedright}
+
+\setsechook{\hangsecnum} % Hang the section number in margin
+\setsubsechook{\defaultsecnum} % Don't do this on the subsections
+\setsubsubsechook{\defaultsecnum}
+\setaftersecskip{5pt} % Default skip between the section and text
+
+%--------------------------------------------------------------------------%
+%------------------------- TOC - PROPERTIES -------------------------------%
+%--------------------------------------------------------------------------%
+\raggedbottomsectiontrue % The page may not be strected on page breaks
+\setsecnumdepth{subsection} % Set section depth in the TOC
+\maxsecnumdepth{subsection} % Max of section depth in the TOC
+\settocdepth{subsection} % Up to and including subsection
+
+\setlength{\cftbeforechapterskip}{1.0em plus 0.1em minus 0.1em} % Space from chapters
+%\chapterprecistoc{Text in TOC}
+
+\addto\captionsenglish{
+	\renewcommand*{\cftchaptername}{Chapter{\space}}
+	\renewcommand*{\cftfigurename}{Fig.{\space}}
+	\renewcommand*{\contentsname}{Table of Contents}
+	\renewcommand*{\abstractname}{Abstract}
+	\renewcommand*{\listfigurename}{List{\space}of{\space}Figures}
+	\renewcommand*{\listtablename}{List{\space}of{\space}Tables}
+	\renewcommand*{\appendixtocname}{Appendices}
+	\renewcommand*{\appendixpagename}{Appendices}
+}
+
+\addto\captionsdanish{
+	\renewcommand*{\cftchaptername}{Kapitel\space}
+	\renewcommand*{\cftfigurename}{Fig.\space}
+	\renewcommand*{\abstractname}{Resumé}
+	\renewcommand*{\contentsname}{Indholdsfortegnelse}
+	\renewcommand*{\listfigurename}{Liste{\space}af{\space}Figurer}
+	\renewcommand*{\listtablename}{Liste{\space}af{\space}Tabeller}
+	\renewcommand*{\appendixtocname}{Appendikser}
+	\renewcommand*{\appendixpagename}{Appendikser}
+}
+
+
+%--------------------------------------------------------------------------%
+%------------------------- CHAPTER STYLE ----------------------------------%
+%--------------------------------------------------------------------------%
+\makechapterstyle{ase_chapterstyle}{
+	\setlength{\beforechapskip}{30pt}
+	\setlength{\afterchapskip}{1.5cm}
+	\renewcommand*{\printchaptername}{}
+	\renewcommand*{\chapnumfont}{\normalfont\sffamily\bfseries\fontsize{60}{0}\selectfont}
+	\renewcommand*{\printchapternum}{
+		\flushright
+		\begin{tikzpicture}
+		\draw[fill,color=ase_blue] (0,0) rectangle (2cm,2cm);
+		\draw[color=white] (1cm,1cm) node { \chapnumfont\thechapter };
+		\end{tikzpicture}
+	}
+	\renewcommand*{\chaptitlefont}{\normalfont\sffamily\Huge\bfseries\color{black}}
+	\renewcommand*{\printchaptertitle}[1]{%
+		\raggedright\chaptitlefont\parbox[t]{\textwidth}{\raggedright##1}}
+}
+
+\chapterstyle{ase_chapterstyle}
+
+
 \hyphenation{op-tical net-works semi-conduc-tor}
+
+\hypersetup{pdfauthor={Stefan~Krause-Kj\ae r, Thomas Thisgaard Steffensen,Theis Nickelsen}, pdftitle={Context-Aware Authentication},
+	pdfsubject={Using Bluetooth Low Energy}}
+
 
 \begin{document}
 
@@ -64,15 +223,44 @@
 	
 }
 
+\frontmatter
+\include{frontpage} % Include the frontpage
+
+
 % make the title area
-\maketitle
-\clearpage
+%\maketitle
+%\clearpage
 
+% Page number in roman style
+\pagenumbering{roman}
 \include{sections/00_Abstract}
+\addcontentsline{toc}{chapter}{\abstractname}
 \clearpage
+\phantomsection
 
-\tableofcontents
+\thispagestyle{empty}
+\tableofcontents*
+\addcontentsline{toc}{chapter}{\contentsname}
 \clearpage
+\phantomsection
+
+
+%\thispagestyle{empty}
+%\listoffigures*
+%\addcontentsline{toc}{chapter}{\listfigurename}
+%\clearpage
+%\phantomsection
+%
+%\thispagestyle{empty}
+%\listoftables*
+%\addcontentsline{toc}{chapter}{\listtablename}
+%\clearpage
+%\phantomsection
+
+%--------------------------------------------------------------------------%
+%------------------------- MAIN MATTER ------------------------------------%
+%--------------------------------------------------------------------------%
+\mainmatter
 
 \include{sections/01_Introduction}
 \include{sections/02_Background}
@@ -123,6 +311,7 @@
 %  \newpage
 %\fi
 
+\backmatter
 
 \input{sections/A_Referneces}
 

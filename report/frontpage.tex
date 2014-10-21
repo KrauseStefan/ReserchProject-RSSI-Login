@@ -1,0 +1,71 @@
+% Frontpage - Titlingpage from Memoir class 
+\begin{titlingpage}
+  
+  \thispagestyle{empty}
+  
+  % Define the colourbar on the frontpage
+  \begin{tikzpicture}[remember picture,overlay]
+    \coordinate [below=2.5cm] (midpoint) at (current page.north);
+
+    \node [name=colourbar,
+    anchor=base,
+    fill=ase_blue,
+    text = white,
+    minimum width=\paperwidth,
+    minimum height=1cm] at (midpoint) {\logoHuge{\textsc{{Aarhus School Of
+            Engineering}}}};
+
+    % Define the point where the logo will go
+    \coordinate [right=4cm] (ase_logo) at (colourbar.west);
+
+    % Set coordinate system origin
+    \begin{scope}[shift=(ase_logo)]
+      % Draw the outline
+      \filldraw [white] (1.2,0.85) -- (-1.6,0.85) -- (-2.3,-0.85) -- (1.2,-0.85) --cycle;
+      % Include the logo
+      \node [xshift=-0.5cm]{\includegraphics[width=3cm]{img/ase_logo.png}};
+    \end{scope}
+  \end{tikzpicture}
+
+  % Temporary center margins
+  \begin{adjustwidth}{-0.5cm}{0cm}
+    \vspace*{\stretch{0.5}}
+    \centering
+    { \setlength{\baselineskip}{32pt}
+      {\SuperHuge \stext{Context-Aware Authentication} 
+      }\par
+      \stext{Using Bluetooth Low Energy}
+      \par\vspace*{4\onelineskip}
+      \par
+%      \includegraphics[width=10cm]{img/ase_logo}
+      \par\vspace*{4\onelineskip}
+      \textbf{\stext{Engineering Research and Development Project}}\par
+      \par\vspace*{2\onelineskip}
+      % Make a table to make the --- align
+      \begin{center}
+        \begin{tabular}{lcl}
+          \large\stext{Stefan~Krause-Kj\ae r, } & \large\stext{---} &
+          \large\stext{201300256} \\ [1ex]
+          % To use danish letters with the UTF8 and soul package
+          % we type \o = ø , \ae = æ, \aa = å, \AA = Å, etc.
+          \large\stext{Thomas Thisgaard Steffensen} & \large\stext{---} & 
+          \large\stext{201300250} \\ [1ex]
+          \large\stext{Theis Nickelsen} & \large\stext{---} & 
+        \large\stext{201300249} \\ [1ex]
+                \end{tabular}
+      \end{center}
+    }
+    \vfill
+    \stext{Supervisor: Stefan Rahr Wagner}\hfill
+    \stext{14. okt 2014}
+
+    \enlargethispage{3.5\onelineskip}
+  \end{adjustwidth}
+\end{titlingpage}
+
+
+
+
+
+
+
