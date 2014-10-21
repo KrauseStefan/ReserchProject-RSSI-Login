@@ -15,28 +15,29 @@ BLE has been chosen for this project for the following reasons:
 
 BLE is a fairly new standard and as such not all devices support it yet. However this is outweighed by what is gained from choosing BLE (power saving, no pairing\cite{ref:Power_usage}). The devices tested during this research project is presented in \cref{table:devices}.
 
-\begin{table}[!t]
-\caption{Device descriptions}
+\begin{table}
 \label{table:devices}
 \centering
 % Some packages, such as MDW tools, offer better commands for making tables
 % than the plain LaTeX2e tabular which is used here.
-\begin{tabular}{|p{3cm}|p{3.5cm}|p{4cm}|}
+\begin{tabular}{|p{4cm}|p{4cm}|p{5cm}|}
 \hline
 \textbf{Device} & \textbf{Hardware Support} & \textbf{Software Support}\\
 \hline
-iPhone 5, iPhone 5s (IOS7) & Yes & Yes\\
+iPhone 5,\newline iPhone 5s (IOS7) & Yes & Yes\\
 \hline
 Nexus 5 \newline (Kitkat 4.4.2) & Yes & Partial \newline
 Central role (Android 4.3)  \newline
 peripheral role (Android~L)\\
 \hline
-Pebble Smartwatch (Pebble OS 2.0) & Yes & Peripheral role\\
+Pebble Smartwatch\newline (Pebble OS 2.0) & Yes & Peripheral role\\
 \hline
-Raspberry Pi (Raspian Linux) and Logilink USB Bluetooth 4.0 dongle & Yes & Yes using BlueZ stack version $\geq$ 5.0 and kernel $\geq$ 3.4\\
+Raspberry Pi\newline (Raspian Linux) with Logilink USB Bluetooth 4.0 dongle & Yes & Yes using BlueZ stack version $\geq$ 5.0 and kernel $\geq$ 3.4\\
 \hline
 
 \end{tabular}
+\caption{Device descriptions}
+
 \end{table}
 
 
