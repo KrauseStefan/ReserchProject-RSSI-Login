@@ -1,0 +1,34 @@
+
+\chapter{Appendix 1 - RSSI sampling code}
+
+\begin{lstlisting}[]
+var numberOfTests = 1000;
+console.log('Time,UUID,LocalName,RSSI')
+noble.addListener('discover', function(peripheral){
+	if(!systemUUID !== peripheral.uuid){
+		return;
+	}
+	
+	var row = [
+			moment().format(),
+			peripheral.uuid,
+			peripheral.advertisement.localName | 'Unknowen',
+			peripheral.rssi
+		].join(',');
+	
+	console.log(row);
+	count++;
+	
+	if(count >= numberOfTests){
+		process.exit(0);
+	}
+
+});
+
+noble.startScanning();
+
+// Outputs
+// Time,UUID,LocalName,RSSI,MedianRSSI
+// 2014-09-18T16:13:30+02:00,75553192bc57,0,-55,-55
+// 2014-09-18T16:13:30+02:00,75553192bc57,0,-55,-55
+\end{lstlisting}
