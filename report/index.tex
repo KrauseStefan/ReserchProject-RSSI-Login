@@ -8,7 +8,7 @@
 % both paper sizes by the user's LaTeX system.
 %
 
-\documentclass[12pt,journal,compsoc]{IEEEtran}
+\documentclass{article}
 
 % Used to generate links, can be removed for final version
 \usepackage{hyperref}
@@ -268,8 +268,9 @@
 % journal papers have the author affiliations above the "Manuscript
 % received ..."  text while in non-compsoc journals this is reversed. Sigh.
 
-\author{Stefan~Krause-Kj\ae r,
-        Thomas Thisgaard Steffensen and
+\author{Stefan~Krause-Kj\ae r\\
+        Thomas Thisgaard Steffensen\\
+        and \\
         Theis Nickelsen% <-this % stops a space
 }
 %\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem M. Shell is with the Department
@@ -311,12 +312,11 @@
 % command as these need to go into the title area created by \maketitle.
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
-\IEEEtitleabstractindextext{%
-\input{sections/00_Abstract}
-	\begin{IEEEkeywords}
-	Bluetooth, RSSI, BLE, Raspberry Pi, Authentication, iPhone, Android, context awareness.
-	\end{IEEEkeywords}
-}
+%\IEEEtitleabstractindextext{%
+%	\begin{IEEEkeywords}
+%	Bluetooth, RSSI, BLE, Raspberry Pi, Authentication, iPhone, Android, context awareness.
+%	\end{IEEEkeywords}
+%}
 
 \newcommand{\buildBoxPlot}[5]{
 	\addplot+[
@@ -337,6 +337,13 @@
 
 % make the title area
 \maketitle
+\clearpage
+
+\input{sections/00_Abstract}
+\clearpage
+
+\tableofcontents
+\clearpage
 
 \input{sections/01_Introduction}
 \input{sections/02_Background}
@@ -365,7 +372,7 @@
 %
 
 
-\appendices
+%\appendices
 
 
 %% use section* for acknowledgement
@@ -383,9 +390,9 @@
 
 % Can use something like this to put references on a page
 % by themselves when using endfloat and the captionsoff option.
-\ifCLASSOPTIONcaptionsoff
-  \newpage
-\fi
+%\ifCLASSOPTIONcaptionsoff
+%  \newpage
+%\fi
 
 
 \input{sections/A_Referneces}
